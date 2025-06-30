@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
+html {
   scroll-behavior: smooth;
-  font-family: var(--font-geist-sans), sans-serif;
+}
+
+body {
+  @apply font-sans bg-white text-gray-900 dark:bg-neutral-950 dark:text-white;
 }

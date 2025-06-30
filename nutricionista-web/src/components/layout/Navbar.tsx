@@ -1,100 +1,90 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
-import clsx from "clsx";
+import { useState } from "react";
 
-const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/sobre-mi", label: "Sobre mí" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contacto", label: "Contacto" },
+const navItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Sobre mí", href: "/sobre-mi" },
+  {
+    name: "Servicios",
+    submenu: [
+      { name: "Consulta individual", href: "/servicios/consulta-individual" },
+      { name: "Programas grupales", href: "/servicios/programas" },
+      { name: "Charlas y talleres", href: "/servicios/talleres" },
+    ],
+  },
+  {
+    name: "Blog",
+    submenu: [
+      { name: "Artículos", href: "/blog/articulos" },
+      { name: "Recetas", href: "/blog/recetas" },
+      { name: "Podcast", href: "/blog/podcast" },
+    ],
+  },
+  { name: "Contacto", href: "/contacto" },
 ];
 
-export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/70 backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/70">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
-        {/* Logo */}
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          <motion.span
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-primary dark:text-white"
-          >
-            Nutrición Sana ✨
-          </motion.span>
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-neutral-900/70 shadow-sm">
+      <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+        <Link href="/" className="text-2xl font-bold text-primary">
+          Nutricionista
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden gap-8 md:flex">
-          {links.map((link, idx) => (
-            <motion.div
-              key={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05 + 0.2 }}
+        <ul className="flex gap-6 items-center">
+          {navItems.map((item) => (
+            <li
+              key={item.name}
+              className="relative"
+              onMouseEnter={() => item.submenu && setOpenMenu(item.name)}
+              onMouseLeave={() => item.submenu && setOpenMenu(null)}
             >
-              <Link
-                href={link.href}
-                className="text-sm font-medium text-gray-700 transition hover:text-primary dark:text-gray-200 dark:hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            </motion.div>
-          ))}
-        </nav>
+              {item.submenu ? (
+                <>
+                  <button className="text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition">
+                    {item.name}
+                  </button>
 
-        {/* Theme toggle */}
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          {/* Mobile toggle */}
-          <button
-            className="ml-2 rounded-md p-2 md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="flex flex-col items-start gap-4 overflow-hidden px-6 py-4 md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
-          >
-            {links.map((link, idx) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.05 }}
-              >
+                  <AnimatePresence>
+                    {openMenu === item.name && (
+                      <motion.ul
+                        initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full mt-2 bg-white dark:bg-neutral-800 shadow-lg rounded-lg p-2 w-48 space-y-2"
+                      >
+                        {item.submenu.map((subitem) => (
+                          <li key={subitem.name}>
+                            <Link
+                              href={subitem.href}
+                              className="block text-sm text-gray-700 dark:text-gray-200 hover:text-primary px-3 py-1 rounded transition"
+                            >
+                              {subitem.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </>
+              ) : (
                 <Link
-                  href={link.href}
-                  className={clsx(
-                    "block text-sm font-medium text-gray-700 dark:text-gray-200 transition hover:text-primary"
-                  )}
-                  onClick={() => setIsOpen(false)}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-primary transition"
                 >
-                  {link.label}
+                  {item.name}
                 </Link>
-              </motion.div>
-            ))}
-          </motion.nav>
-        )}
-      </AnimatePresence>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
-};
+}

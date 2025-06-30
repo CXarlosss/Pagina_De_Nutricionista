@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, Instagram, Mail } from "lucide-react";
 
@@ -37,7 +36,7 @@ export const Footer = () => {
         </p>
 
         <div className="flex gap-4">
-          {socialLinks.map((link, idx) => (
+          {socialLinks.map((link) => (
             <motion.a
               key={link.href}
               href={link.href}
