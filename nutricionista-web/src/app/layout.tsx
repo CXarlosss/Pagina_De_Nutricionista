@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import "@/styles/globals.css";
-import  Navbar  from "../components/layout/Navbar";
+import Navbar from "../components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
@@ -8,16 +8,27 @@ import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Elena de Petronila | Nutricionista",
-  description: "Nutrición real para una vida real. Consulta online y presencial.",
+  description:
+    "Nutrición real para una vida real. Consulta online y presencial.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="es" className={GeistSans.variable}>
-<body className="pt-[72px] bg-white text-gray-900 dark:bg-neutral-950 dark:text-white">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem enableColorScheme>
+    <html lang="es" suppressHydrationWarning className={GeistSans.variable}>
+      <body className="bg-white pt-[72px] text-gray-900 dark:bg-neutral-950 dark:text-white">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
           <Navbar />
-          <main className="min-h-[80vh] px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">{children}</main>
+          <main className="mx-auto min-h-[80vh] max-w-7xl px-4 sm:px-6 md:px-12">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
