@@ -13,6 +13,7 @@ const navItems = [
       { name: "Consulta individual", href: "/servicios/consulta-individual" },
       { name: "Programas grupales", href: "/servicios/programas" },
       { name: "Charlas y talleres", href: "/servicios/talleres" },
+      { name: "Recursos gratuitos", href: "/servicios/recursos" },
     ],
   },
   {

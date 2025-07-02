@@ -5,12 +5,21 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <section className="flex min-h-[90vh] w-full items-center justify-center bg-gradient-to-br from-primary/10 to-transparent px-6 text-center dark:from-primary/20">
+    <section className="relative flex min-h-[90vh] w-full items-center justify-center bg-gradient-to-br from-primary/10 to-transparent px-6 text-center dark:from-primary/20 overflow-hidden">
+      {/* Imagen de fondo */}
+      <div
+        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-20 dark:opacity-10"
+        style={{
+          backgroundImage: "url('/images/FondoPrincipal.jpg')",
+        }}
+      />
+
+      {/* Contenido encima del fondo */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-3xl"
+        className="relative z-10 max-w-3xl"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

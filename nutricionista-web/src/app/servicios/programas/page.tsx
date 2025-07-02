@@ -15,7 +15,24 @@ const queIncluye = [
   "Sesiones grupales semanales en directo por videollamada.",
   "Material descargable con recursos, ejercicios y recetas.",
   "Grupo privado para compartir avances, dudas y apoyo mutuo.",
-  "Acceso a grabaciones si no puedes asistir en directo.",
+  "Acceso a grabaciones si no puedes asistir en directo."
+];
+
+const paraQuien = [
+  "Mujeres que quieren dejar las dietas atrás.",
+  "Quienes necesitan motivación y apoyo en su proceso.",
+  "Personas que valoran la comunidad como parte del cambio."
+];
+
+const testimonios = [
+  {
+    nombre: "Laura, 38 años",
+    texto: "Gracias a este programa dejé de pelear con la comida. Me sentí acompañada de verdad."
+  },
+  {
+    nombre: "Paula, 32 años",
+    texto: "Compartir con otras mujeres me dio fuerza y motivación. Elena es una guía maravillosa."
+  }
 ];
 
 export default function ProgramasPage() {
@@ -64,6 +81,22 @@ export default function ProgramasPage() {
         </ul>
       </motion.div>
 
+      {/* ¿Para quién es? */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-2xl font-semibold mb-4">¿Está hecho para ti?</h2>
+        <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+          {paraQuien.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </motion.div>
+
       {/* Qué incluye */}
       <motion.div
         className="mb-16"
@@ -82,6 +115,28 @@ export default function ProgramasPage() {
             </li>
           ))}
         </ul>
+      </motion.div>
+
+      {/* Testimonios */}
+      <motion.div
+        className="mb-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-2xl font-semibold mb-6 text-center">Lo que dicen otras mujeres</h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {testimonios.map((t, i) => (
+            <div
+              key={i}
+              className="p-6 bg-white dark:bg-zinc-900 rounded-lg shadow"
+            >
+              <p className="italic mb-2">“{t.texto}”</p>
+              <p className="text-sm font-semibold text-primary">{t.nombre}</p>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
       {/* CTA */}

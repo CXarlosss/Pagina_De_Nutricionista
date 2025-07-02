@@ -8,9 +8,16 @@ import { es } from "date-fns/locale";
 import { type Post } from "@/types/post";
 
 export const PostCard = ({ article }: { article: Post }) => {
-  // Generar la ruta según categoría
-  const categoryPath = article.category.toLowerCase();
-  const href = `/blog/${categoryPath}/${article.slug}`;
+const categoryMap: Record<string, string> = {
+  "Psiconutrición": "articulos",
+  "Salud femenina": "articulos",
+  "Recetas": "recetas",
+  "Podcast": "podcast",
+};
+
+const categoryPath = categoryMap[article.category] || "articulos";
+const href = `/blog/${categoryPath}/${article.slug}`;
+
 
   return (
     <motion.article
@@ -35,13 +42,7 @@ export const PostCard = ({ article }: { article: Post }) => {
 
         <div className="p-5">
           <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">
-            {typeof window !== "undefined" && (
-              <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">
-                {format(new Date(article.date), "d 'de' MMMM yyyy", {
-                  locale: es,
-                })}
-              </p>
-            )}
+            {format(new Date(article.date), "d 'de' MMMM yyyy", { locale: es })}
           </p>
 
           <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
