@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
 import { motion } from "framer-motion";
+
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({ nombre: "", email: "", mensaje: "" });
@@ -23,9 +25,7 @@ export const ContactForm = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
-        Hablemos ✉️
-      </h2>
+      
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>

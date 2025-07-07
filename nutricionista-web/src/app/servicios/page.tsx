@@ -3,7 +3,7 @@
 "use client";
 
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { TestimonialsSection } from "@/components/sections/Testimonials";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { motion } from "framer-motion";
 import Link from "next/link";
 

@@ -73,12 +73,7 @@ export default function SobreMiPage() {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-10">Mi enfoque se basa en:</h2>
           <div className="grid sm:grid-cols-2 gap-8 text-left">
-            {[
-              "La evidencia científica, no las modas.",
-              "El respeto a tu historia y tus emociones.",
-              "La flexibilidad alimentaria, sin restricciones.",
-              "El disfrute como base del cambio sostenible.",
-            ].map((item, i) => (
+            {["La evidencia científica, no las modas.", "El respeto a tu historia y tus emociones.", "La flexibilidad alimentaria, sin restricciones.", "El disfrute como base del cambio sostenible."].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -94,8 +89,24 @@ export default function SobreMiPage() {
         </div>
       </section>
 
+      {/* Testimonio simbólico */}
+      <section className="bg-white dark:bg-zinc-950 py-20 px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <motion.blockquote
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="italic text-lg text-gray-700 dark:text-gray-300"
+          >
+            “Gracias a Elena volví a disfrutar de comer sin culpa. Su forma de acompañar es única.”
+            <footer className="mt-4 text-sm font-semibold text-primary">– Marta, 34 años</footer>
+          </motion.blockquote>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="text-center py-24 px-6">
+      <section className="text-center py-24 px-6 bg-zinc-50 dark:bg-zinc-900">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +118,7 @@ export default function SobreMiPage() {
             ¿Te gustaría que trabajemos juntas?
           </h3>
           <p className="mb-6 text-gray-600 dark:text-gray-300">
-            Estoy aquí para ayudarte a lograr una relación sana con la comida y contigo misma. Da el primer paso.
+            Estoy aquí para ayudarte a lograr una relación sana con la comida y contigo misma. Da el primer paso hacia una nutrición sin culpa y llena de sentido.
           </p>
           <Link
             href="/contacto"

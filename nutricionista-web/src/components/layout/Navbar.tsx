@@ -31,7 +31,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-neutral-900/70 shadow-sm">
+    <header className="fixed top-[36px] left-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-neutral-900/70 shadow-sm">
       <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         <Link href="/" className="text-2xl font-bold text-primary">
           Nutricionista
