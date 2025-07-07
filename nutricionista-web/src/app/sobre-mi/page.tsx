@@ -5,17 +5,18 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCheckCircle } from "react-icons/fa"; // Import FaCheckCircle
 
 export default function SobreMiPage() {
   return (
     <main className="bg-white dark:bg-zinc-950 text-gray-900 dark:text-white">
       {/* Hero */}
-      <section className="text-center py-24 px-6 bg-gradient-to-br from-primary/10 to-transparent dark:from-primary/20">
+      <section className="text-center py-24 px-6 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 rounded-b-xl shadow-lg"> {/* Enhanced gradient and shadow */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl sm:text-5xl font-extrabold leading-tight"
+          className="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white"
         >
           Mucho gusto,<br />
           soy <span className="text-primary">Elena De Petronila</span>
@@ -44,9 +45,9 @@ export default function SobreMiPage() {
             <Image
               src="/images/Nutricionista.jpg"
               alt="Foto de Elena"
-              width={320}
-              height={320}
-              className="rounded-2xl shadow-xl object-cover w-72 h-72 md:w-80 md:h-80"
+              width={400} // Increased size
+              height={400} // Increased size
+              className="rounded-2xl shadow-xl object-cover w-full h-auto max-w-sm md:max-w-md" // Responsive sizing
             />
           </motion.div>
 
@@ -57,8 +58,8 @@ export default function SobreMiPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">¿Por qué hago esto?</h2>
-            <p className="text-lg mb-4">
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">¿Por qué hago esto?</h2> {/* Consistent heading color */}
+            <p className="text-lg mb-4 text-gray-700 dark:text-gray-300"> {/* Consistent text color */}
               Porque también estuve ahí: confundida, cansada de las dietas y desconectada de mi cuerpo. Me formé en nutrición para ayudar a mujeres como tú a salir de ese bucle.
             </p>
             <p className="text-base text-gray-600 dark:text-gray-300">
@@ -71,18 +72,19 @@ export default function SobreMiPage() {
       {/* Mi enfoque */}
       <section className="bg-zinc-50 dark:bg-zinc-900 py-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10">Mi enfoque se basa en:</h2>
+          <h2 className="text-3xl font-bold mb-10 text-gray-900 dark:text-white">Mi enfoque se basa en:</h2> {/* Consistent heading color */}
           <div className="grid sm:grid-cols-2 gap-8 text-left">
             {["La evidencia científica, no las modas.", "El respeto a tu historia y tus emociones.", "La flexibilidad alimentaria, sin restricciones.", "El disfrute como base del cambio sostenible."].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="p-6 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg shadow-sm"
+                className="p-6 bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 rounded-lg shadow-md flex items-center gap-3" // Added flex for icon alignment
               >
-                <p className="text-lg">✅ {item}</p>
+                <FaCheckCircle className="text-primary text-2xl flex-shrink-0" /> {/* FaCheckCircle with primary color */}
+                <p className="text-lg">{item}</p> {/* Text size consistent */}
               </motion.div>
             ))}
           </div>
@@ -91,22 +93,22 @@ export default function SobreMiPage() {
 
       {/* Testimonio simbólico */}
       <section className="bg-white dark:bg-zinc-950 py-20 px-6">
-        <div className="max-w-xl mx-auto text-center">
+        <div className="max-w-xl mx-auto text-center p-8 rounded-lg shadow-lg bg-zinc-50 dark:bg-zinc-900"> {/* Card styling for testimonial */}
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="italic text-lg text-gray-700 dark:text-gray-300"
+            className="italic text-xl text-gray-700 dark:text-gray-300" // Larger text for quote
           >
             “Gracias a Elena volví a disfrutar de comer sin culpa. Su forma de acompañar es única.”
-            <footer className="mt-4 text-sm font-semibold text-primary">– Marta, 34 años</footer>
+            <footer className="mt-4 text-base font-semibold text-primary">– Marta, 34 años</footer> {/* Footer text size consistent */}
           </motion.blockquote>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="text-center py-24 px-6 bg-zinc-50 dark:bg-zinc-900">
+      <section className="text-center py-24 px-6 bg-gradient-to-t from-blue-50 to-transparent dark:from-zinc-800 rounded-t-xl shadow-lg"> {/* Gradient background and shadow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,15 +116,15 @@ export default function SobreMiPage() {
           viewport={{ once: true }}
           className="max-w-xl mx-auto"
         >
-          <h3 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900 dark:text-white"> {/* Consistent heading color */}
             ¿Te gustaría que trabajemos juntas?
           </h3>
-          <p className="mb-6 text-gray-600 dark:text-gray-300">
+          <p className="mb-8 text-lg text-gray-700 dark:text-gray-300"> {/* Consistent text color and more margin */}
             Estoy aquí para ayudarte a lograr una relación sana con la comida y contigo misma. Da el primer paso hacia una nutrición sin culpa y llena de sentido.
           </p>
           <Link
             href="/contacto"
-            className="inline-block rounded-full bg-primary px-8 py-3 text-white text-sm font-semibold shadow-md hover:bg-primary/80 transition"
+            className="inline-block rounded-full bg-primary px-10 py-5 text-white text-xl font-semibold shadow-xl hover:bg-primary/80 transition-all" // Larger and more prominent button
           >
             Contáctame
           </Link>
