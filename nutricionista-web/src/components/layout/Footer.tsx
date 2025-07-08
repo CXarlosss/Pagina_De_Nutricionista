@@ -1,25 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Instagram, Mail } from "lucide-react";
+import { FaGithub, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin, FaYoutube, FaTiktok, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const socialLinks = [
   {
     href: "https://github.com/CXarlosss",
-    icon: <Github className="h-5 w-5" />,
+    icon: <FaGithub className="h-8 w-8" />,
     label: "GitHub",
   },
   {
     href: "https://www.instagram.com/e.depetronila/",
-    icon: <Instagram className="h-5 w-5" />,
+    icon: <FaInstagram className="h-8 w-8" />,
     label: "Instagram",
   },
   {
     href: "mailto:elenap.nutricionista@gmail.com",
-    icon: <Mail className="h-5 w-5" />,
+    icon: <FaEnvelope className="h-8 w-8" />,
     label: "Correo",
+  },
+  {
+    href: "https://api.whatsapp.com/send/?phone=34643914336",
+    icon: <FaWhatsapp className="h-8 w-8" />,
+    label: "WhatsApp",
+  },
+  {
+    href: "https://www.linkedin.com/in/elenadepetronila/",
+    icon: <FaLinkedin className="h-8 w-8" />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://www.youtube.com/channel/UCBzKEph8Jk8yHLtk3i159NA",
+    icon: <FaYoutube className="h-8 w-8" />,
+    label: "YouTube",
+  },
+  {
+    href: "https://www.tiktok.com/@e.depetronila",
+    icon: <FaTiktok className="h-8 w-8" />,
+    label: "TikTok",
   },
 ];
 
@@ -31,35 +52,91 @@ const instagramImages = [
   "/images/Fondo4.jpg",
   "/images/Fondo5.jpg",
   "/images/Fondo6.jpg",
+  "/images/podcast/1x01.jpg",
+  "/images/Nutricionista.jpg",
+  "/images/podcast/1x01.jpg",
+  "/images/IMG_1476.jpg",
 ];
 
 export const Footer = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const imagesPerPage = 3; // Number of images to show at once
+  const imageWidth = 180; // Corresponds to min-w-[180px]
+  const gapWidth = 24; // Corresponds to gap-6 (1.5rem * 16px/rem = 24px)
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      Math.min(prevIndex + 1, instagramImages.length - imagesPerPage)
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  };
+
   return (
-    <footer className="mt-20 border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+    <footer className="mt-16 border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-zinc-900"> {/* Changed bg-white to bg-gray-100 */}
       {/* Sección de Instagram */}
-      <section className="py-10 px-6">
-        <h3 className="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-white">
-          Sígueme en Instagram
+      <section className="py-16 px-6 bg-gradient-to-t from-blue-50 to-transparent dark:from-zinc-800 shadow-xl">
+        <h3 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
+          Sígueme en <span className="text-primary">Instagram</span>
         </h3>
-        <div className="flex justify-center">
-          <div className="flex overflow-x-auto gap-4 scrollbar-hide">
-            {instagramImages.map((src, i) => (
-              <div key={i} className="min-w-[160px] h-[160px] relative rounded-lg overflow-hidden">
-                <Image
-                  src={src}
-                  alt={`Instagram ${i}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden rounded-2xl">
+            <motion.div
+              className="flex gap-6"
+              animate={{ x: -currentIndex * (imageWidth + gapWidth) }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {instagramImages.map((src, i) => (
+                <motion.div
+                  key={i}
+                  className="min-w-[180px] h-[180px] relative rounded-3xl overflow-hidden shadow-lg border border-primary/10 flex-shrink-0"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                >
+                  <Image
+                    src={src}
+                    alt={`Instagram ${i}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    className="object-cover"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
+          {/* Carousel Navigation Buttons */}
+          {instagramImages.length > imagesPerPage && (
+            <>
+              <button
+                onClick={handlePrev}
+                disabled={currentIndex === 0}
+                className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                aria-label="Previous image"
+              >
+                <FaChevronLeft className="text-xl" />
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={currentIndex >= instagramImages.length - imagesPerPage}
+                className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                aria-label="Next image"
+              >
+                <FaChevronRight className="text-xl" />
+              </button>
+            </>
+          )}
         </div>
-        <div className="mt-4 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="https://www.instagram.com/e.depetronila/"
             target="_blank"
-            className="inline-block text-primary text-sm font-medium hover:underline"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-primary/80 transition-all"
           >
             Ver perfil completo en Instagram →
           </Link>
@@ -67,18 +144,18 @@ export const Footer = () => {
       </section>
 
       {/* Avisos legales */}
-      <section className="py-6 border-t border-gray-200 dark:border-gray-700 text-sm text-center">
-        <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">
-          <Link href="/aviso-legal" className="hover:underline">
+      <section className="py-10 border-t border-gray-200 dark:border-gray-700 text-center bg-gray-100 dark:bg-zinc-800">
+        <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400 font-medium">
+          <Link href="/aviso-legal" className="text-base hover:text-primary transition-colors">
             Aviso legal
           </Link>
-          <Link href="/politica-privacidad" className="hover:underline">
+          <Link href="/politica-privacidad" className="text-base hover:text-primary transition-colors">
             Política de privacidad
           </Link>
-          <Link href="/cookies" className="hover:underline">
+          <Link href="/cookies" className="text-base hover:text-primary transition-colors">
             Política de cookies
           </Link>
-          <Link href="/terminos" className="hover:underline">
+          <Link href="/terminos" className="text-base hover:text-primary transition-colors">
             Términos y condiciones
           </Link>
         </div>
@@ -90,13 +167,13 @@ export const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto max-w-4xl py-6 flex flex-col items-center gap-4 border-t border-gray-200 dark:border-gray-700"
+        className="mx-auto max-w-4xl py-10 flex flex-col items-center gap-6 border-t border-gray-200 dark:border-gray-700"
       >
-        <p className="text-xs tracking-wide text-gray-500 dark:text-gray-400">
+        <p className="text-sm tracking-wide text-gray-500 dark:text-gray-400 font-normal">
           © {new Date().getFullYear()} Elena de Petronila. Todos los derechos reservados.
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-6">
           {socialLinks.map((link) => (
             <motion.a
               key={link.href}
@@ -107,7 +184,7 @@ export const Footer = () => {
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="rounded-full p-2 transition hover:bg-gray-200 dark:hover:bg-gray-700"
+              className="rounded-full p-2 transition hover:bg-gray-200 dark:hover:bg-gray-700 text-primary hover:text-secondary"
             >
               {link.icon}
             </motion.a>
