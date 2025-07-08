@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin, FaYoutube, FaTiktok, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Import useEffect
 
 const socialLinks = [
   {
@@ -60,9 +60,17 @@ const instagramImages = [
 
 export const Footer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imagesPerPage = 3; // Number of images to show at once
-  const imageWidth = 180; // Corresponds to min-w-[180px]
-  const gapWidth = 24; // Corresponds to gap-6 (1.5rem * 16px/rem = 24px)
+  const imagesPerPage = 3;
+  const imageWidth = 180;
+  const gapWidth = 24;
+
+  // State to hold the current year, initialized to an empty string on server
+  const [currentYear, setCurrentYear] = useState('');
+
+  // Set the current year only on the client side after component mounts
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
+  }, []);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -75,7 +83,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="mt-16 border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-zinc-900"> {/* Changed bg-white to bg-gray-100 */}
+    <footer className="mt-16 border-t border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-zinc-900">
       {/* Sección de Instagram */}
       <section className="py-16 px-6 bg-gradient-to-t from-blue-50 to-transparent dark:from-zinc-800 shadow-xl">
         <h3 className="text-3xl font-bold mb-8 text-center text-gray-900 dark:text-white">
@@ -170,7 +178,7 @@ export const Footer = () => {
         className="mx-auto max-w-4xl py-10 flex flex-col items-center gap-6 border-t border-gray-200 dark:border-gray-700"
       >
         <p className="text-sm tracking-wide text-gray-500 dark:text-gray-400 font-normal">
-          © {new Date().getFullYear()} Elena de Petronila. Todos los derechos reservados.
+          © {currentYear} Elena de Petronila. Todos los derechos reservados. {/* Using currentYear state */}
         </p>
 
         <div className="flex gap-6">

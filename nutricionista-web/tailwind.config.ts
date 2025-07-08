@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#5ac062', // Tu verde principal
+          DEFAULT: '#4dbd7d', // Tu verde principal
           light: '#88d98e',   // Una variante más clara del verde
           dark: '#4a9c52',    // Una variante más oscura del verde
         },
