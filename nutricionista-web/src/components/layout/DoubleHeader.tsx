@@ -14,8 +14,7 @@ import {
 const DoubleHeader = () => {
   return (
 <div className="hidden sm:flex fixed top-0 left-0 w-full z-50 justify-between items-center px-8 py-3 text-sm
-  bg-green-400 dark:bg-black text-gray-800 dark:text-green-500
-  backdrop-blur-lg shadow-xl border-b border-green-600 dark:border-zinc-700 transition-colors duration-300">
+  border-gray-200 bg-white dark:text-gray-700 dark:bg-white-200 backdrop-blur-lg shadow-xl border-b dark:text-gray-400transition-colors duration-300">
 
 
       {/* Teléfono */}
@@ -31,7 +30,7 @@ const DoubleHeader = () => {
           <span className="cursor-default font-medium">elenap.nutricionista@gmail.com</span>
         </div>
 
-        <div className="flex gap-4 text-gray-600 dark:text-green-400">
+        <div className="flex gap-4 text-gray-600 dark:text-gray-700">
           <Link href="https://api.whatsapp.com/send/?phone=34643914336" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <FaWhatsapp className="text-xl hover:text-primary transition-colors" />
           </Link>

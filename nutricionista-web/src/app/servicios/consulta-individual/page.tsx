@@ -60,6 +60,13 @@ const faqs = [
     pregunta: "¿Qué pasa si no puedo seguir el plan?",
     respuesta: "No pasa nada. Ajustamos juntas. Aquí no hay castigos, solo aprendizaje y acompañamiento real.",
   },
+  {pregunta:"¿Te sientes incómodo/a debido al aumento de peso en estos últimos años?",
+  respuesta: "No estás solo/a. Muchas personas pasan por esto y es completamente normal. Juntos podemos encontrar una forma de cuidarte que te haga sentir bien contigo mismo/a.",
+  },{
+    pregunta: "¿Cuándo puedo comenzar?",
+    respuesta: "Agendando la primera cita por videollamada en el calendario", 
+   }
+
 ];
 
 export default function ConsultaIndividualPage() {
