@@ -50,13 +50,13 @@ export const Hero = () => {
         >
           <Link
             href="/servicios"
-            className="rounded-full border border-primary text-primary px-8 py-4 text-lg font-semibold transition hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white" // Enhanced hover effect: becomes filled primary button
+            className="rounded-full border border-secondary text-secondary bg-transparent px-8 py-4 text-lg font-semibold shadow-sm transition hover:bg-secondary hover:text-white hover:scale-[1.01] hover:shadow-md" // Outline secondary, fills on hover, scales up
           >
             Ver servicios
           </Link>
           <Link
             href="/sobre-mi"
-            className="rounded-full border border-primary text-primary px-8 py-4 text-lg font-semibold transition hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white" // Enhanced hover effect: becomes filled primary button
+            className="rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary hover:scale-[1.01]" // Darker default, brighter on hover, scale up
           >
             Conóceme
           </Link>

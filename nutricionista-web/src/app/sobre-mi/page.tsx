@@ -98,7 +98,7 @@ export default function SobreMiPage() {
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white">¿Quién soy?</h2>
             
-            <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+            <p className="text-xs text-gray-600 dark:text-gray-300 mb-4">
               Soy Elena, me gradué en 2020 en la Universidad Autónoma de Madrid en el Grado de Nutrición Humana y Dietética y bueno como soy un poco culo inquieto seguí estudiando las disciplinas que más interés me despertaban, ampliando mis conocimientos en el mundo deportivo y la mejora del rendimiento, la alimentación vegetariana y vegana, y el mundo de la disfagia y la malnutrición asociada a la tercera edad.
             </p>
             <p className="text-xs text-gray-600 dark:text-gray-300 mb-4">
@@ -118,41 +118,48 @@ export default function SobreMiPage() {
       </section>
 
       {/* Sección: ¿Cómo que un Podcast? */}
-      <section className="py-20 px-6 bg-gradient-to-br from-[#ffb4b9] to-[#ffcdb2] dark:from-zinc-800 dark:to-zinc-900">
-        <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
-          {/* Texto del Podcast (izquierda) */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              ¿Cómo que un <span className="text-primary">Podcast</span>?
-            </h2>
-            <p className="text-xs leading-relaxed text-gray-700 dark:text-gray-300">
-              En 2022 decidimos empezar este proyecto Beatriz Rodríguez, que puedes encontrar en redes como @partiendoelkoko y yo, para dar apoyo, información y nuestro punto de vista de la alimentación, la nutrición y la salud en general, tocando temas como la obesidad, los trastornos de la conducta alimentaria, la alimentación sostenible, como crear hábitos… Siempre con nuestro toque de lo que nosotras llamamos humor y desde la cercanía, como si estuviéramos en un bar un viernes noche.
-            </p>
-          </motion.div>
+      <section className="py-20 px-6 bg-gradient-to-br from-[#ffb4b9] to-[#ffcdb2] dark:from-zinc-800 dark:to-zinc-900 rounded-3xl shadow-xl mx-auto max-w-6xl"> {/* Reverted gradient background to original colors */}
+      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+        {/* Texto del Podcast (izquierda) */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="p-4" // Added some padding for spacing
+        >
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+            ¿Cómo que un <span className="text-primary">Podcast</span>?
+          </h2>
+          <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300"> {/* Adjusted text size to base */}
+            En 2022 decidimos empezar este proyecto Beatriz Rodríguez, que puedes encontrar en redes como @partiendoelkoko y yo, para dar apoyo, información y nuestro punto de vista de la alimentación, la nutrición y la salud en general, tocando temas como la obesidad, los trastornos de la conducta alimentaria, la alimentación sostenible, como crear hábitos… Siempre con nuestro toque de lo que nosotras llamamos humor y desde la cercanía, como si estuviéramos en un bar un viernes noche.
+          </p>
+        </motion.div>
 
-          {/* Imagen del Podcast (derecha) */}
+        {/* Imagen del Podcast (derecha) */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center p-4" // Added padding for spacing
+        >
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
+            whileHover={{ scale: 1.05 }} // Subtle hover effect
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="relative w-[300px] h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/20 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900" // Stronger shadow, rounded-3xl, border, and gradient background
           >
             <Image
               src="/images/Partiendo-el-koko.png" // Placeholder image for podcast section
               alt="Portada del Podcast Partiendo el KOKO"
-              width={300}
-              height={300}
-              className="rounded-2xl shadow-xl object-cover border border-primary/20"
+              fill
+              style={{ objectFit: 'cover' }}
+              className="object-cover"
             />
           </motion.div>
-        </div>
-      </section>
+        </motion.div>
+      </div>
+    </section>
 
       {/* Sección: Instagram y Tiktok */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-900">

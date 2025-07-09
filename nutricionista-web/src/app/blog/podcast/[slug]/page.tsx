@@ -1,6 +1,6 @@
 import { podcastPosts } from "@/data/podcasts";
 import { notFound } from "next/navigation";
-import { PostContent } from "@/components/blog/PostContent";
+import { PodcastContent } from "@/components/blog/podcast/PostContent";
 import { Post } from "@/types/post";
 
 interface Props {
@@ -14,5 +14,5 @@ export default function PodcastEpisodePage({ params }: Props) {
 
   if (!post) return notFound();
 
-  return <PostContent post={post} />;
+  return <PodcastContent post={post} />;
 }
