@@ -19,17 +19,22 @@ export const PostCard = ({ article }: { article: Post }) => {
   const href = `/blog/${categoryPath}/${article.slug}`;
 
   return (
-    <motion.article
-      whileHover={{ scale: 1.02, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)" }} // Lift and stronger shadow on hover
-      whileTap={{ scale: 0.98 }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="overflow-hidden rounded-xl border border-primary/20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-900 shadow-xl transition hover:border-primary" // Added gradient, stronger shadow, and primary border
-    >
-      <Link href={href} className="block">
-        <div className="relative h-52 w-full overflow-hidden rounded-t-xl"> {/* Ensure rounded corners on image */}
+    <Link href={href}>
+      <motion.article
+        whileHover={{
+          scale: 1.02,
+          boxShadow:
+            "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        }}
+        whileTap={{ scale: 0.98 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="overflow-hidden rounded-xl border border-primary/20 shadow-xl transition hover:border-primary cursor-pointer bg-white dark:bg-zinc-900"
+      >
+        {/* Imagen */}
+        <div className="relative h-52 w-full overflow-hidden">
           <Image
             src={article.image}
             alt={article.title}
@@ -39,16 +44,20 @@ export const PostCard = ({ article }: { article: Post }) => {
           />
         </div>
 
-        <div className="p-5 bg-white dark:bg-zinc-900 rounded-b-xl"> {/* Added background to text content */}
-          <p className="mb-1 text-xs text-gray-600 dark:text-gray-400"> {/* Adjusted text size and color */}
-            {format(new Date(article.date), "d 'de' MMMM 'de' yyyy", { locale: es })} {/* Added year to date format */}
+        {/* Contenido */}
+        <div className="p-5">
+          <p className="mb-1 text-xs text-gray-600 dark:text-gray-400">
+            {format(new Date(article.date), "d 'de' MMMM 'de' yyyy", {
+              locale: es,
+            })}
           </p>
 
-          <h3 className="mb-2 text-lg font-semibold text-primary"> {/* Adjusted text size and primary color */}
+          {/* TÍTULO CON GRADIENTE */}
+          <h3 className="mb-3 text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             {article.title}
           </h3>
 
-          <p className="mb-4 text-sm text-gray-700 dark:text-gray-300"> {/* Adjusted text size */}
+          <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
             {article.excerpt}
           </p>
 
@@ -56,7 +65,7 @@ export const PostCard = ({ article }: { article: Post }) => {
             Leer más →
           </span>
         </div>
-      </Link>
-    </motion.article>
+      </motion.article>
+    </Link>
   );
 };
