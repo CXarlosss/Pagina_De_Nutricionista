@@ -3,13 +3,14 @@ import { notFound } from "next/navigation";
 import { posts } from "@/data/articles";
 import { Post } from "@/types/post";
 import { PostContent } from "@/components/blog/PostContent";
+// import { type PageProps } from "next"; // Ya no es necesario importar PageProps si no se extiende
 
-// Define la interfaz de props para la página dinámica.
-// Esta es la forma estándar en Next.js App Router.
+// Define la interfaz de props para la página dinámica de forma más directa.
+// Esto es un intento de workaround para el error de compilación específico
+// donde 'PageProps' parece ser interpretada incorrectamente como una 'Promise'.
 interface ArticlePageProps {
   params: { slug: string };
-  // Next.js también pasa 'searchParams' a las Page Props,
-  // aunque no se use en este componente, es parte de la interfaz 'PageProps'
+  // Si necesitas searchParams, puedes añadirlos aquí manualmente:
   // searchParams?: { [key: string]: string | string[] | undefined };
 }
 
