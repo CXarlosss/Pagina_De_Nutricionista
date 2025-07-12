@@ -1,0 +1,18 @@
+[build]
+command = "npm run build"
+publish = ".next"
+# Si usas pnpm o yarn, cambia el comando:
+# command = "yarn build"
+# command = "pnpm build"
+
+[build.environment]
+NODE_VERSION = "18" # o la versión que uses
+NEXT_PRIVATE_TARGET = "server"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
