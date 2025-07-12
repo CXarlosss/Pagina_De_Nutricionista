@@ -6,11 +6,11 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "esnext", // Cambiado a esnext para compatibilidad moderna
     "moduleResolution": "bundler", // **Asegura que esta línea esté en "bundler"**
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx", // Añadido para React 17+ y Next.js
     "incremental": true,
     "plugins": [
       {
@@ -20,7 +20,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "forceConsistentCasingInFileNames": true // **Asegura que esta línea esté en true**
+    "forceConsistentCasingInFileNames": true, // **Asegura que esta línea esté en true**
+    "target": "es2022" // **Establecido explícitamente a ES2022 para un manejo moderno de Promise**
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
