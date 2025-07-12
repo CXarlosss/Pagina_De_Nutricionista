@@ -1,16 +1,8 @@
 [build]
-command = "npm run build"
-publish = ".next"
-# Si usas pnpm o yarn, cambia el comando:
-# command = "yarn build"
-# command = "pnpm build"
-
-[build.environment]
-NODE_VERSION = "18" # o la versión que uses
-NEXT_PRIVATE_TARGET = "server"
-
-[[plugins]]
-package = "@netlify/plugin-nextjs"
+  base = "nutricionista-web"
+  command = "npm run build"
+  publish = "nutricionista-web/.next"
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/*"
