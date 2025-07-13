@@ -3,18 +3,16 @@ import { posts } from "@/data/articles";
 import { Post } from "@/types/post";
 import { PostContent } from "@/components/blog/PostContent";
 
-export default async function RecetaPage({
-  params,
-}: {
+interface Props {
   params: { slug: string };
-}) {
-  const { slug } = params;
+}
 
+export default function RecetaPage({ params }: Props) {
   const receta: Post | undefined = posts.find(
-    (p) => p.slug === slug && p.category === "Recetas"
+    (p) => p.slug === params.slug && p.category === "Recetas"
   );
 
-  if (!receta) notFound();
+  if (!receta) return notFound();
 
   return <PostContent post={receta} />;
 }
