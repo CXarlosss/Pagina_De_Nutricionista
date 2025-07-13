@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true, // **Asegura que esta línea esté en true**
     "strict": true,
@@ -10,7 +14,7 @@
     "moduleResolution": "bundler", // **Asegura que esta línea esté en "bundler"**
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx", // Añadido para React 17+ y Next.js
+    "jsx": "preserve", // Añadido para React 17+ y Next.js
     "incremental": true,
     "plugins": [
       {
@@ -18,12 +22,20 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "forceConsistentCasingInFileNames": true, // **Asegura que esta línea esté en true**
     "target": "es2022" // **Establecido explícitamente a ES2022 para un manejo moderno de Promise**
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
-
