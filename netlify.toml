@@ -4,5 +4,10 @@
   publish = ".next"
   functions = "netlify/functions"
 
+[build.environment]
+  NETLIFY_USE_NODE_VERSION = "18"
+  NEXT_PRIVATE_SKIP_SIZE_LIMIT = "true"
+  NETLIFY_SKIP_CACHE = "true"
+
 [[plugins]]
   package = "@netlify/next-runtime"
