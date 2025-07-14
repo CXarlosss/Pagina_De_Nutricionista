@@ -8,7 +8,7 @@ import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function ContactoPage() {
   return (
-    <main className="bg-white px-6 py-20 text-gray-900 dark:bg-zinc-950 dark:text-white">
+    <main className="bg-white px-6 py-20 text-gray-900"> {/* Eliminado dark:bg-zinc-950 y dark:text-white */}
       {/* No Hero Section */}
 
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2"> {/* Removed items-start to allow items to stretch */}
@@ -17,7 +17,7 @@ export default function ContactoPage() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-900 p-8 shadow-xl border border-primary/20 flex flex-col items-center text-center md:items-start md:text-left" // Added gradient, shadow, border, and responsive alignment
+          className="rounded-3xl bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-xl border border-primary/20 flex flex-col items-center text-center md:items-start md:text-left" // Eliminado dark:from-zinc-800 y dark:to-zinc-900
         >
           <Image
             src="/images/Nutricionista.jpg"
@@ -29,7 +29,7 @@ export default function ContactoPage() {
           <h2 className="text-primary mb-4 text-2xl font-bold sm:text-3xl"> {/* Adjusted font size */}
             ¿Estás lista para cuidarte de verdad?
           </h2>
-          <p className="text-sm text-gray-700 dark:text-gray-300 mb-6"> {/* Adjusted font size */}
+          <p className="text-sm text-gray-700 mb-6"> {/* Eliminado dark:text-gray-300 y adjusted font size */}
             No tienes que hacerlo sola. Estoy aquí para ayudarte a reconectar
             con tu cuerpo, tu energía y tu bienestar.
           </p>

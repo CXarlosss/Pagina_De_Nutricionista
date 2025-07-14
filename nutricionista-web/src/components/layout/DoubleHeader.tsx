@@ -13,25 +13,25 @@ import {
 
 const DoubleHeader = () => {
   return (
-<div className="hidden sm:flex fixed top-0 left-0 w-full z-50 justify-between items-center px-8 py-3 text-sm
-  bg-gradient-to-r from-secondary to-primary text-white border-b border-gray-300 dark:border-zinc-700">
+    <div className="hidden sm:flex fixed top-0 left-0 w-full z-50 justify-between items-center px-8 py-3 text-sm
+    bg-gradient-to-r from-secondary to-primary text-white border-b border-gray-300"> {/* Eliminado dark:border-zinc-700 */}
 
         {/* Teléfono */}
       <div className="flex items-center gap-3">
-        <FaPhone className="text-white text-lg" /> {/* Icono blanco */}
+        <FaPhone className="text-white text-lg" />
         <span className="cursor-default font-medium">643 914 336</span>
       </div>
 
       {/* Email y redes */}
       <div className="flex items-center gap-8 ">
         <div className="flex items-center gap-3 hover:text-gray-800 transition-colors ">
-          <FaEnvelope className="text-white text-lg " /> {/* Icono blanco */}
+          <FaEnvelope className="text-white text-lg " />
           <span className="cursor-default font-medium">elenap.nutricionista@gmail.com</span>
         </div>
 
-        <div className="flex gap-4 text-white"> {/* Texto e iconos de redes sociales en blanco */}
+        <div className="flex gap-4 text-white">
           <Link href="https://api.whatsapp.com/send/?phone=34643914336" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <FaWhatsapp className="text-xl text-white hover:text-gray-800 transition-colors" /> {/* Hover a gris claro */}
+            <FaWhatsapp className="text-xl text-white hover:text-gray-800 transition-colors" />
           </Link>
           <Link href="https://www.instagram.com/e.depetronila/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <FaInstagram className="text-xl text-white hover:text-gray-800 transition-colors" />

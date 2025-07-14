@@ -10,7 +10,7 @@ interface Props {
 
 export const PostContent = ({ post }: Props) => {
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800 dark:text-gray-100">
+    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800"> {/* Eliminado dark:text-gray-100 */}
       {/* Título del post */}
       <h1 className="mb-16 text-center text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
         {post.title}
@@ -18,7 +18,7 @@ export const PostContent = ({ post }: Props) => {
 
       {/* Contenido del artículo */}
       <motion.article
-        className="mx-auto max-w-3xl rounded-xl p-8 shadow-xl border border-primary/20 bg-white dark:bg-zinc-900"
+        className="mx-auto max-w-3xl rounded-xl p-8 shadow-xl border border-primary/20 bg-white" /* Eliminado dark:bg-zinc-900 */
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7 }}
@@ -49,7 +49,7 @@ export const PostContent = ({ post }: Props) => {
 
           {/* Contenido del texto */}
           <motion.div
-            className="prose prose-base dark:prose-invert max-w-none"
+            className="prose prose-base max-w-none" /* Eliminado dark:prose-invert */
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}

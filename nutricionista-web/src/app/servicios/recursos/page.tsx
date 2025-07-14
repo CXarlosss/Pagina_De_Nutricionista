@@ -1,4 +1,3 @@
-// src/app/servicios/recursos/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -29,10 +28,10 @@ const recursos = [
 
 export default function RecursosPage() {
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800 dark:text-white">
+    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800"> {/* Eliminado dark:text-white */}
       {/* Hero Section para Recursos */}
       <motion.div
-        className="text-center mb-16 relative overflow-hidden rounded-3xl p-8 shadow-lg min-h-[300px] flex items-center justify-center" // Changed rounded-xl to rounded-3xl, added min-h and flex for centering
+        className="text-center mb-16 relative overflow-hidden rounded-3xl p-8 shadow-lg min-h-[300px] flex items-center justify-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -42,7 +41,7 @@ export default function RecursosPage() {
           alt="Recursos Gratuitos de Nutrición"
           fill
           style={{ objectFit: 'cover' }}
-          className="absolute inset-0 z-0 opacity-80" // Slightly transparent image
+          className="absolute inset-0 z-0 opacity-80"
           priority
         />
         <div className="relative z-10 bg-black bg-opacity-40 p-6 rounded-lg max-w-2xl mx-auto"> {/* Dark overlay for text readability */}
@@ -55,11 +54,11 @@ export default function RecursosPage() {
         </div>
       </motion.div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 p-8 shadow-xl"> {/* Applied gradient, padding, and shadow to the grid container */}
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 p-8 shadow-xl"> {/* Eliminado dark:from-zinc-800 dark:to-zinc-900 */}
         {recursos.map((r, i) => (
           <motion.div
             key={i}
-            className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-primary/20 shadow-md flex flex-col items-start transition-all duration-300 hover:shadow-lg hover:border-primary" // Consistent card styling with hover effect
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md flex flex-col items-start transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
@@ -70,7 +69,7 @@ export default function RecursosPage() {
               {r.icono}
               <h3 className="text-lg font-semibold text-primary">{r.titulo}</h3> {/* Smaller title and primary color */}
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 flex-grow">{r.descripcion}</p> {/* Smaller text */}
+            <p className="text-sm text-gray-700 mb-6 flex-grow">{r.descripcion}</p> {/* Eliminado dark:text-gray-300 y Smaller text */}
             <Link
               href={r.enlace}
               target="_blank"

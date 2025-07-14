@@ -31,7 +31,7 @@ export const PostCard = ({ article }: { article: Post }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="overflow-hidden rounded-xl border border-primary/20 shadow-xl transition hover:border-primary cursor-pointer bg-white dark:bg-zinc-900"
+        className="overflow-hidden rounded-xl border border-primary/20 shadow-xl transition hover:border-primary cursor-pointer bg-white" // Removed dark:bg-zinc-900
       >
         {/* Imagen */}
         <div className="relative h-52 w-full overflow-hidden">
@@ -46,7 +46,7 @@ export const PostCard = ({ article }: { article: Post }) => {
 
         {/* Contenido */}
         <div className="p-5">
-          <p className="mb-1 text-xs text-gray-600 dark:text-gray-400">
+          <p className="mb-1 text-xs text-gray-600"> {/* Removed dark:text-gray-400 */}
             {format(new Date(article.date), "d 'de' MMMM 'de' yyyy", {
               locale: es,
             })}
@@ -57,7 +57,7 @@ export const PostCard = ({ article }: { article: Post }) => {
             {article.title}
           </h3>
 
-          <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
+          <p className="mb-4 text-sm text-gray-700"> {/* Removed dark:text-gray-300 */}
             {article.excerpt}
           </p>
 

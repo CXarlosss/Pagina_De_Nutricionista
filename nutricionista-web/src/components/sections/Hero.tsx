@@ -6,11 +6,11 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <section className="relative flex min-h-[90vh] w-full items-center justify-center
-                        bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900
-                        px-6 text-center overflow-hidden rounded-b-xl shadow-xl"> {/* Enhanced gradient, shadow, and rounded corners */}
+                         bg-gradient-to-br from-blue-100 to-purple-100
+                         px-6 text-center overflow-hidden rounded-b-xl shadow-xl"> {/* Removed dark:from-zinc-800 dark:to-zinc-900 */}
       {/* Imagen de fondo */}
       <div
-        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-15 dark:opacity-5" // Adjusted opacity for better contrast
+        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-15" // Removed dark:opacity-5
         style={{
           backgroundImage: "url('/images/FondoPrincipal.jpg')",
         }}
@@ -27,7 +27,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl" // Consistent text color
+          className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl" /* Removed dark:text-white */
         >
           Alimentación real<br />
           <span className="text-primary glow">para una vida real</span>
@@ -37,7 +37,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-4 text-base text-gray-700 dark:text-gray-300 sm:text-lg" // Consistent text color
+          className="mt-4 text-base text-gray-700 sm:text-lg" /* Removed dark:text-gray-300 */
         >
           Aprende a comer con placer, salud y sin restricciones. Descubre el camino hacia tu bienestar con una nutricionista que te entiende.
         </motion.p>
@@ -50,13 +50,13 @@ export const Hero = () => {
         >
           <Link
             href="/servicios"
-            className="rounded-full border border-secondary text-secondary bg-transparent px-8 py-4 text-lg font-semibold shadow-sm transition hover:bg-secondary hover:text-white hover:scale-[1.01] hover:shadow-md" // Outline secondary, fills on hover, scales up
+            className="rounded-full border border-secondary text-secondary bg-transparent px-8 py-4 text-lg font-semibold shadow-sm transition hover:bg-secondary hover:text-white hover:scale-[1.01] hover:shadow-md"
           >
             Ver servicios
           </Link>
           <Link
             href="/sobre-mi"
-            className="rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary hover:scale-[1.01]" // Darker default, brighter on hover, scale up
+            className="rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary hover:scale-[1.01]"
           >
             Conóceme
           </Link>

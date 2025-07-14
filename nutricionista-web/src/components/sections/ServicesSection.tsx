@@ -52,13 +52,13 @@ const services = [
 export const ServicesSection = () => {
   return (
     <section
-      className="w-full px-6 py-20 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-zinc-800 dark:to-zinc-900" // Added gradient background
+      className="w-full px-6 py-20 bg-gradient-to-br from-blue-50 to-purple-50" // Removed dark:from-zinc-800 dark:to-zinc-900
       id="servicios"
     >
       <div className="mx-auto max-w-5xl text-center">
         {/* Título con animación */}
         <motion.h2
-          className="mb-10 text-4xl font-bold text-gray-900 dark:text-white" // Larger title, consistent mb-12
+          className="mb-10 text-4xl font-bold text-gray-900" // Removed dark:text-white
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -72,26 +72,26 @@ export const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="rounded-xl border border-emerald-200 bg-emerald-50 p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary dark:border-emerald-700 dark:bg-emerald-900 dark:hover:border-primary" // Changed background to greenish, adjusted border
+              className="rounded-xl border border-emerald-200 bg-emerald-50 p-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary" // Removed dark:border-emerald-700 dark:bg-emerald-900 dark:hover:border-primary
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }} // Reduced scale slightly for smoother effect
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-primary mb-4 flex justify-center items-center"> {/* Centered icon */}
+              <div className="text-primary mb-4 flex justify-center items-center">
                 {service.icon}
               </div>
-              <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white"> {/* Larger and bolder title */}
+              <h3 className="mb-3 text-xl font-bold text-gray-900"> {/* Removed dark:text-white */}
                 {service.title}
               </h3>
-              <p className="mb-5 text-sm text-gray-700 dark:text-gray-300"> {/* Changed text size to text-sm */}
+              <p className="mb-5 text-sm text-gray-700"> {/* Removed dark:text-gray-300 */}
                 {service.description}
               </p>
               {service.href && (
-                <Link // Changed <a> to Link for Next.js routing
+                <Link
                   href={service.href}
-                  className="inline-flex items-center gap-2 text-primary text-sm font-semibold hover:underline transition-colors" // Changed text size to text-sm
+                  className="inline-flex items-center gap-2 text-primary text-sm font-semibold hover:underline transition-colors"
                 >
                   Ver más →
                 </Link>
@@ -102,15 +102,15 @@ export const ServicesSection = () => {
 
         {/* Botón CTA */}
         <motion.div
-          className="mt-16" // Increased margin-top
+          className="mt-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Link // Changed <a> to Link for Next.js routing
+          <Link
             href="/contacto"
-            className="bg-primary hover:bg-primary/80 inline-block rounded-full px-8 py-4 text-lg font-semibold text-white transition-all shadow-xl" // Larger and more prominent button
+            className="bg-primary hover:bg-primary/80 inline-block rounded-full px-8 py-4 text-lg font-semibold text-white transition-all shadow-xl"
           >
             Quiero empezar mi cambio
           </Link>

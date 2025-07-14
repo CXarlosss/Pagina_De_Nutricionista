@@ -1,5 +1,3 @@
-// src/app/servicios/page.tsx
-
 "use client";
 
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -9,21 +7,21 @@ import Link from "next/link";
 
 export default function ServiciosPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-zinc-900 dark:text-white">
+    <div className="min-h-screen bg-white text-gray-900"> {/* Eliminado dark:bg-zinc-900 y dark:text-white */}
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-b-xl bg-gradient-to-b from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 px-6 py-24 text-center shadow-lg">
+      <section className="relative overflow-hidden rounded-b-xl bg-gradient-to-b from-blue-100 to-purple-100 px-6 py-24 text-center shadow-lg"> {/* Eliminado dark:from-zinc-800 y dark:to-zinc-900 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="mx-auto max-w-3xl"
         >
-          <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
+          <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl"> {/* Eliminado dark:text-white */}
             Acompañamiento nutricional
             <br />
             <span className="text-primary">personalizado y cercano</span>
           </h1>
-          <p className="mt-6 text-lg text-gray-700 dark:text-gray-300">
+          <p className="mt-6 text-lg text-gray-700"> {/* Eliminado dark:text-gray-300 */}
             Conoce todos los servicios con los que puedo ayudarte a mejorar tu
             salud, tu energía y tu bienestar general.
           </p>
@@ -52,9 +50,9 @@ export default function ServiciosPage() {
       <TestimonialsSection />
 
       {/* Beneficios o enfoque */}
-      <section className="bg-zinc-50 px-6 py-20 dark:bg-zinc-800">
+      <section className="bg-zinc-50 px-6 py-20"> {/* Eliminado dark:bg-zinc-800 */}
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 dark:text-white">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900"> {/* Eliminado dark:text-white */}
             Nuestro Enfoque
           </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"> {/* Ajustado a 4 columnas en pantallas grandes */}
@@ -82,10 +80,10 @@ export default function ServiciosPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="rounded-lg border border-gray-200 bg-white p-6 shadow-lg dark:border-zinc-700 dark:bg-zinc-900" // Añadido shadow-lg
+                className="rounded-lg border border-gray-200 bg-white p-6 shadow-lg" // Eliminado dark:border-zinc-700 y dark:bg-zinc-900
               >
                 <h3 className="mb-3 text-xl font-semibold text-primary">{item.title}</h3> {/* Título más grande y color primario */}
-                <p className="text-base text-gray-700 dark:text-gray-300">{item.text}</p> {/* Texto más grande */}
+                <p className="text-base text-gray-700">{item.text}</p> {/* Eliminado dark:text-gray-300 y Texto más grande */}
               </motion.div>
             ))}
           </div>
@@ -93,7 +91,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* CTA final */}
-      <section className="px-6 py-20 text-center bg-gradient-to-t from-blue-50 to-transparent dark:from-zinc-800"> {/* Fondo degradado para el CTA */}
+      <section className="px-6 py-20 text-center bg-gradient-to-t from-blue-50 to-transparent"> {/* Eliminado dark:from-zinc-800 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,10 +99,10 @@ export default function ServiciosPage() {
           viewport={{ once: true }}
           className="mx-auto max-w-xl"
         >
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl"> {/* Eliminado dark:text-white */}
             ¿Lista para transformar tu bienestar?
           </h2>
-          <p className="mb-8 text-lg text-gray-700 dark:text-gray-300"> {/* Texto más grande y más margen */}
+          <p className="mb-8 text-lg text-gray-700"> {/* Eliminado dark:text-gray-300 y Texto más grande y más margen */}
             Reserva tu primera consulta y empieza a mejorar tu salud, energía y bienestar desde hoy.
           </p>
           <Link

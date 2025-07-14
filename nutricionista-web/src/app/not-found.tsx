@@ -23,7 +23,7 @@ export default function NotFoundPage() {
         />
 
         <h1 className="text-4xl font-bold text-primary sm:text-5xl">¡Ups! Página no encontrada</h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-md mx-auto text-lg">
+        <p className="text-gray-600 max-w-md mx-auto text-lg"> {/* Removed dark:text-gray-300 */}
           Parece que la página que buscas no existe o ha sido movida.
         </p>
 
@@ -36,7 +36,7 @@ export default function NotFoundPage() {
           </Link>
           <Link
             href="/contacto"
-            className="px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-100 transition" /* Removed dark:border-gray-600 and dark:text-gray-200 and dark:hover:bg-gray-800 */
           >
             Contactar
           </Link>

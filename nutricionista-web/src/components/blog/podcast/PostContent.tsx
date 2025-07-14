@@ -5,9 +5,9 @@ import { formatDate } from "@/lib/utils";
 
 export const PodcastContent = ({ post }: { post: Post }) => {
   return (
-    <article className="prose dark:prose-invert max-w-4xl mx-auto py-12 px-4">
+    <article className="prose max-w-4xl mx-auto py-12 px-4"> {/* Removed dark:prose-invert */}
       <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <p className="text-sm text-gray-500 mb-4"> {/* Removed dark:text-gray-400 */}
         {formatDate(post.date)} · {post.readingTime}
       </p>
 
@@ -33,16 +33,15 @@ export const PodcastContent = ({ post }: { post: Post }) => {
       </div>
 
       {post.content && (
-  <div
-    className="mt-8 whitespace-pre-line"
-    dangerouslySetInnerHTML={{
-      __html: typeof post.content === "string" ? post.content : String(post.content),
-    }}
-  />
-)}
+        <div
+          className="mt-8 whitespace-pre-line"
+          dangerouslySetInnerHTML={{
+            __html: typeof post.content === "string" ? post.content : String(post.content),
+          }}
+        />
+      )}
 
-
-      <div className="mt-10 border-t pt-6 text-sm text-gray-600 dark:text-gray-300">
+      <div className="mt-10 border-t pt-6 text-sm text-gray-600"> {/* Removed dark:text-gray-300 */}
         <p>Síguenos en:</p>
         <ul className="mt-2 space-y-1">
           <li>

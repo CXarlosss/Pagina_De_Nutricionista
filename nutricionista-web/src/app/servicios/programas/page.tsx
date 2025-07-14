@@ -1,5 +1,3 @@
-// src/app/servicios/programas/page.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -38,12 +36,13 @@ const testimonios = [
   }
 ];
 
+
 export default function ProgramasPage() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-20 text-gray-800 dark:text-white">
+    <section className="mx-auto max-w-5xl px-6 py-20 text-gray-800"> {/* Eliminado dark:text-white */}
       {/* Hero Section */}
       <motion.div
-        className="text-center mb-16 relative overflow-hidden rounded-3xl p-8 shadow-lg min-h-[400px] flex items-center justify-center" // Added min-h and flex for centering content
+        className="text-center mb-16 relative overflow-hidden rounded-3xl p-8 shadow-lg min-h-[400px] flex items-center justify-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -53,7 +52,7 @@ export default function ProgramasPage() {
           alt="Mujeres en programa grupal de nutrición"
           fill
           style={{ objectFit: 'cover' }}
-          className="absolute inset-0 z-0 opacity-80" // Slightly transparent image
+          className="absolute inset-0 z-0 opacity-80"
           priority
         />
         <div className="relative z-10 bg-black bg-opacity-40 p-6 rounded-lg max-w-2xl mx-auto"> {/* Dark overlay for text readability */}
@@ -76,13 +75,13 @@ export default function ProgramasPage() {
 
       {/* Sección Unificada: Nuestro Programa Grupal */}
       <motion.div
-        className="mb-16 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 p-8 shadow-xl" // Made gradient more pronounced
+        className="mb-16 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 p-8 shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900"> {/* Eliminado dark:text-white */}
           Nuestro Programa Grupal
         </h2>
 
@@ -93,7 +92,7 @@ export default function ProgramasPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary flex items-center justify-center gap-2">
@@ -103,7 +102,7 @@ export default function ProgramasPage() {
               {beneficios.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 dark:text-gray-300 text-xs">{item}</span>
+                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
                 </li>
               ))}
             </ul>
@@ -115,7 +114,7 @@ export default function ProgramasPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary flex items-center justify-center gap-2">
@@ -125,7 +124,7 @@ export default function ProgramasPage() {
               {paraQuien.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 dark:text-gray-300 text-xs">{item}</span>
+                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
                 </li>
               ))}
             </ul>
@@ -137,7 +136,7 @@ export default function ProgramasPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white dark:bg-zinc-900 border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary flex items-center justify-center gap-2">
@@ -147,7 +146,7 @@ export default function ProgramasPage() {
               {queIncluye.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 dark:text-gray-300 text-xs">{item}</span>
+                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
                 </li>
               ))}
             </ul>
@@ -157,25 +156,25 @@ export default function ProgramasPage() {
 
       {/* Testimonios */}
       <motion.div
-        className="mb-20 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-zinc-800 dark:to-zinc-900 p-8 rounded-lg shadow-xl" // Made gradient more pronounced
+        className="mb-20 bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-lg shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">Lo que dicen otras mujeres</h2>
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">Lo que dicen otras mujeres</h2> {/* Eliminado dark:text-white */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
           {testimonios.map((t, i) => (
             <motion.div
               key={i}
-              className="rounded-lg bg-white p-8 shadow-lg dark:bg-zinc-900 border border-primary/20 transition-all duration-300 hover:shadow-xl hover:border-primary"
+              className="rounded-lg bg-white p-8 shadow-lg border border-primary/20 transition-all duration-300 hover:shadow-xl hover:border-primary" // Eliminado dark:bg-zinc-900
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >
-              <p className="mb-4 text-base italic text-gray-700 dark:text-gray-300">“{t.texto}”</p>
+              <p className="mb-4 text-base italic text-gray-700">“{t.texto}”</p> {/* Eliminado dark:text-gray-300 */}
               <p className="text-primary font-semibold text-sm">{t.nombre}</p>
             </motion.div>
           ))}
@@ -184,16 +183,16 @@ export default function ProgramasPage() {
 
       {/* CTA final */}
       <motion.div
-        className="text-center bg-gradient-to-t from-blue-100 to-transparent dark:from-zinc-800 p-8 rounded-xl shadow-xl" // Made gradient more pronounced
+        className="text-center bg-gradient-to-t from-blue-100 to-transparent p-8 rounded-xl shadow-xl" // Eliminado dark:from-zinc-800
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl"> {/* Eliminado dark:text-white */}
           ¿Lista para transformar tu bienestar?
         </h2>
-        <p className="mb-8 text-base text-gray-700 dark:text-gray-300">
+        <p className="mb-8 text-base text-gray-700"> {/* Eliminado dark:text-gray-300 */}
           Únete a nuestra comunidad y empieza a mejorar tu salud, energía y bienestar desde hoy.
         </p>
         <Link
