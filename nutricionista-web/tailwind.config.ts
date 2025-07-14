@@ -6,20 +6,26 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
+    // Estilos base
+    'bg-primary', 'bg-primary-dark', 'bg-secondary',
+    'text-primary', 'text-primary-dark', 'text-secondary',
+    'border-primary', 'border-secondary',
+
+    // Variantes comunes
+    'hover:bg-primary', 'hover:text-primary',
+    'dark:bg-primary', 'dark:text-primary',
+
+    // Utilizadas en pseudo-elementos (como after)
+    'after:bg-primary', 'after:text-primary',
+
+    // Gradientes
+    'from-primary', 'to-primary',
+    'from-secondary', 'to-secondary',
+
+    // O patrón más flexible si prefieres (esto reemplaza lo de arriba)
     {
-      pattern: /bg-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
-    },
-    {
-      pattern: /text-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
-    },
-    {
-      pattern: /border-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
-    },
-    {
-      pattern: /from-(primary|secondary)/,
-    },
-    {
-      pattern: /to-(primary|secondary)/,
+      pattern:
+        /(bg|text|border|hover:bg|hover:text|dark:bg|dark:text|after:bg|after:text|from|to)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
     },
   ],
   theme: {
