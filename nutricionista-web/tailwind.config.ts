@@ -5,23 +5,17 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
- safelist: [
-  'bg-primary',
-  'dark:bg-primary',
-  'bg-primary-500',
-  'dark:bg-primary-500',
-  'text-primary',
-  'dark:text-primary',
-  'bg-white',
-  'text-gray-900',
-  'dark:bg-neutral-950',
-  'dark:text-white',
-  {
-    pattern:
-      /(bg|text|border|hover:bg|hover:text|dark:bg|dark:text|after:bg|after:text|from|to)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
-  },
-],
-
+  safelist: [
+    'bg-primary',
+    'bg-primary-500',
+    'text-primary',
+    'bg-white',
+    'text-gray-900',
+    {
+      pattern:
+        /(bg|text|border|hover:bg|hover:text|after:bg|after:text|from|to)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900))?/,
+    },
+  ],
   theme: {
     extend: {
       colors: {
@@ -37,7 +31,7 @@ module.exports = {
           700: '#15803d',
           800: '#166534',
           900: '#14532d',
-          dark: '#4a9c52',
+          dark: '#4a9c52', 
         },
         secondary: {
           DEFAULT: '#33b7b7',
@@ -78,5 +72,5 @@ module.exports = {
     },
   },
   plugins: [],
-  darkMode: 'class',
+ 
 };
