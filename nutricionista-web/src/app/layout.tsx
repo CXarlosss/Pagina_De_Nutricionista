@@ -20,14 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className={GeistSans.variable}>
-<body className="bg-white pt-[140px] text-gray-900 dark:bg-neutral-950 dark:text-white">
-
-
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
+      <body className="bg-white pt-[140px] text-gray-900 dark:bg-neutral-950 dark:text-white">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <DoubleHeader />
           <Navbar />
           <main className="mx-auto min-h-[80vh] max-w-7xl px-4 sm:px-6 md:px-12">
