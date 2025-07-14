@@ -9,8 +9,7 @@ import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
   title: "Elena de Petronila | Nutricionista",
-  description:
-    "Nutrición real para una vida real. Consulta online y presencial.",
+  description: "Nutrición real para una vida real. Consulta online y presencial.",
 };
 
 export default function RootLayout({
@@ -19,14 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" suppressHydrationWarning className={GeistSans.variable}>
-  <body className="pt-[140px]">
-
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} bg-white text-gray-900 dark:bg-neutral-950 dark:text-white`}
+    >
+      <body className="pt-[140px]">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <DoubleHeader />
           <Navbar />
           <main className="mx-auto min-h-[80vh] max-w-7xl px-4 sm:px-6 md:px-12">
