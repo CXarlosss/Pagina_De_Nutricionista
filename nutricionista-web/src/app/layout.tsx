@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className={GeistSans.variable}>
-<body className="bg-white pt-[140px] text-gray-900 dark:bg-neutral-950 dark:text-white">
+      <body className="bg-primary pt-[140px] text-gray-900 dark:bg-secondary dark:text-white">
 
         <ThemeProvider
           attribute="class"
