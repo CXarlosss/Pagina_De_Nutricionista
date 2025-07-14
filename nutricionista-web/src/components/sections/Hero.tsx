@@ -1,23 +1,31 @@
-// src/app/components/Hero.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
     <section className="relative flex min-h-[90vh] w-full items-center justify-center
-                          bg-gradient-to-br from-blue-100 to-purple-100
-                          px-6 text-center overflow-hidden rounded-b-xl shadow-xl">
+      bg-gradient-to-br from-blue-100 to-purple-100
+      px-6 pt-20 text-center overflow-hidden rounded-b-xl shadow-xl">
+      
       {/* Imagen de fondo */}
-      <div
-        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-15"
-        style={{
-          backgroundImage: "url('/images/FondoPrincipal.jpg')",
-        }}
-      />
+      <div className="absolute inset-0 z-0 h-full w-full">
+        <Image
+          src="/images/FondoPrincipal.jpg"
+          alt="Fondo abstracto con motivos nutricionales"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-center opacity-30 sm:opacity-15"
+        />
+      </div>
 
-      {/* Contenido encima del fondo */}
+      {/* Capa de suavizado para contraste */}
+      <div className="absolute inset-0 z-[1] bg-white/40 sm:bg-white/20" />
+
+      {/* Contenido principal */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,7 +36,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl" /* CHANGE: text-3xl for smallest screens, adjusted sm and lg */
+          className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
         >
           Alimentación real<br />
           <span className="text-primary glow">para una vida real</span>
