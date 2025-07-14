@@ -15,12 +15,12 @@ export default function PodcastPage() {
   const temporada3 = podcastPosts.slice(6, 9);  // Episodios 3x01 a 3x03
 
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto text-gray-900"> {/* Eliminado dark:text-white */}
-      <h1 className="text-4xl font-bold mb-16 text-center">Podcast: Partiendo el KOKO</h1>
+    <section className="py-20 px-6 max-w-6xl mx-auto text-gray-900">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-16 text-center">Podcast: Partiendo el KOKO</h1> {/* CAMBIO: text-3xl para móviles, sm:text-4xl para pantallas más grandes */}
 
       <div className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">Temporada 1</h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"> {/* CAMBIO: Añadido grid-cols-1 */}
           {temporada1.map((episode) => (
             <PostCard key={episode.slug} article={episode} />
           ))}
@@ -29,7 +29,7 @@ export default function PodcastPage() {
 
       <div className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">Temporada 2</h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"> {/* CAMBIO: Añadido grid-cols-1 */}
           {temporada2.map((episode) => (
             <PostCard key={episode.slug} article={episode} />
           ))}
@@ -38,7 +38,7 @@ export default function PodcastPage() {
 
       <div>
         <h2 className="text-2xl font-semibold mb-6">Temporada 3</h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"> {/* CAMBIO: Añadido grid-cols-1 */}
           {temporada3.map((episode) => (
             <PostCard key={episode.slug} article={episode} />
           ))}

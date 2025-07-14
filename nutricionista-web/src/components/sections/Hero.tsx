@@ -1,3 +1,4 @@
+// src/app/components/Hero.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -6,11 +7,11 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <section className="relative flex min-h-[90vh] w-full items-center justify-center
-                         bg-gradient-to-br from-blue-100 to-purple-100
-                         px-6 text-center overflow-hidden rounded-b-xl shadow-xl"> {/* Removed dark:from-zinc-800 dark:to-zinc-900 */}
+                          bg-gradient-to-br from-blue-100 to-purple-100
+                          px-6 text-center overflow-hidden rounded-b-xl shadow-xl">
       {/* Imagen de fondo */}
       <div
-        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-15" // Removed dark:opacity-5
+        className="absolute inset-0 w-full z-0 bg-cover bg-center opacity-15"
         style={{
           backgroundImage: "url('/images/FondoPrincipal.jpg')",
         }}
@@ -27,7 +28,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-5xl" /* Removed dark:text-white */
+          className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl" /* CHANGE: text-3xl for smallest screens, adjusted sm and lg */
         >
           Alimentación real<br />
           <span className="text-primary glow">para una vida real</span>
@@ -37,7 +38,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-4 text-base text-gray-700 sm:text-lg" /* Removed dark:text-gray-300 */
+          className="mt-4 text-base text-gray-700 sm:text-lg"
         >
           Aprende a comer con placer, salud y sin restricciones. Descubre el camino hacia tu bienestar con una nutricionista que te entiende.
         </motion.p>

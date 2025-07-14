@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function ArticulosPage() {
   return (
-    <section className="py-20 px-6 max-w-6xl mx-auto text-gray-900"> {/* Eliminado dark:text-white */}
-      <h1 className="text-4xl font-bold mb-10 text-center">
+    <section className="py-20 px-6 max-w-6xl mx-auto text-gray-900">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-10 text-center"> {/* CAMBIO: text-3xl para móviles, sm:text-4xl para pantallas más grandes */}
         Artículos del blog
       </h1>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"> {/* CAMBIO: Añadido grid-cols-1 */}
         {posts.map((article) => (
           <PostCard key={article.slug} article={article} />
         ))}

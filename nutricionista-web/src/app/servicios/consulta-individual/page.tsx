@@ -1,3 +1,4 @@
+// src/app/consulta-individual/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -66,7 +67,7 @@ const faqs = [
 
 export default function ConsultaIndividualPage() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-20 text-gray-800"> {/* Eliminado dark:text-white */}
+    <section className="mx-auto max-w-5xl px-6 py-20 text-gray-800">
       {/* Sección principal: Imagen destacada y descripción */}
       <motion.div
         className="relative mb-16 flex min-h-[400px] items-center justify-center rounded-3xl overflow-hidden shadow-lg"
@@ -84,7 +85,7 @@ export default function ConsultaIndividualPage() {
         />
         <div className="relative z-10 p-6 text-center bg-black bg-opacity-40 rounded-lg max-w-2xl mx-auto">
           <motion.h1
-            className="mb-4 text-4xl font-bold text-white md:text-5xl"
+            className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl" // CAMBIO: text-3xl para móviles muy pequeños
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -104,24 +105,24 @@ export default function ConsultaIndividualPage() {
 
       {/* Sección Unificada: Tu Camino Hacia el Bienestar */}
       <motion.div
-        className="mb-16 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-16 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900"> {/* Eliminado dark:text-white */}
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">
           Tu Camino Hacia el Bienestar
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> {/* Grid for the three sub-sections */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Sub-sección: ¿Para quién es esta consulta? */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary">¿Para quién es esta consulta?</h3>
@@ -129,7 +130,7 @@ export default function ConsultaIndividualPage() {
               {paraQuien.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
+                  <span className="text-gray-700 text-xs">{item}</span>
                 </li>
               ))}
             </ul>
@@ -141,7 +142,7 @@ export default function ConsultaIndividualPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary">¿Te sientes identificada?</h3>
@@ -149,7 +150,7 @@ export default function ConsultaIndividualPage() {
               {problemasFrecuentes.map((p, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 text-xs">{p}</span> {/* Eliminado dark:text-gray-300 */}
+                  <span className="text-gray-700 text-xs">{p}</span>
                 </li>
               ))}
             </ul>
@@ -161,7 +162,7 @@ export default function ConsultaIndividualPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary">¿Cómo será el proceso?</h3>
@@ -169,7 +170,7 @@ export default function ConsultaIndividualPage() {
               {estructuraConsulta.map((e, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <p className="text-gray-700 text-xs">{e}</p> {/* Eliminado dark:text-gray-300 */}
+                  <p className="text-gray-700 text-xs">{e}</p>
                 </li>
               ))}
             </ul>
@@ -179,26 +180,26 @@ export default function ConsultaIndividualPage() {
 
       {/* Beneficios */}
       <motion.div
-        className="mb-16 grid items-center gap-10 md:grid-cols-2 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-16 grid items-center gap-10 md:grid-cols-2 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         viewport={{ once: true }}
       >
         <div className="order-2 md:order-1">
-          <h2 className="mb-6 text-3xl font-semibold text-gray-900">Con la consulta individual podrás...</h2> {/* Eliminado dark:text-white */}
+          <h2 className="mb-6 text-3xl font-semibold text-gray-900">Con la consulta individual podrás...</h2>
           <ul className="space-y-4 text-lg">
             {beneficios.map((b, i) => (
               <motion.li
                 key={i}
-                className="flex items-center gap-3 p-2 rounded-md transition-all duration-300 hover:bg-white/10" // Eliminado dark:hover:bg-zinc-800/50
+                className="flex items-center gap-3 p-2 rounded-md transition-all duration-300 hover:bg-white/10"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
               >
                 <FaCheckCircle className="flex-shrink-0 text-primary text-xl" />
-                <span className="text-gray-700 text-sm">{b}</span> {/* Eliminado dark:text-gray-300 */}
+                <span className="text-gray-700 text-sm">{b}</span>
               </motion.li>
             ))}
           </ul>
@@ -228,25 +229,25 @@ export default function ConsultaIndividualPage() {
 
       {/* Testimonios */}
       <motion.div
-        className="mb-20 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-20 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">Lo que dicen mis pacientes</h2> {/* Eliminado dark:text-white */}
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">Lo que dicen mis pacientes</h2>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
           {testimonios.map((t, i) => (
             <motion.div
               key={i}
-              className="rounded-lg bg-white p-8 shadow-lg border border-primary/20 transition-all duration-300 hover:shadow-xl hover:border-primary" // Eliminado dark:bg-zinc-900
+              className="rounded-lg bg-white p-8 shadow-lg border border-primary/20 transition-all duration-300 hover:shadow-xl hover:border-primary"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
             >
-              <p className="mb-4 text-base italic text-gray-700">“{t.texto}”</p> {/* Eliminado dark:text-gray-300 */}
+              <p className="mb-4 text-base italic text-gray-700">“{t.texto}”</p>
               <p className="text-primary font-semibold text-sm">{t.nombre}</p>
             </motion.div>
           ))}
@@ -255,18 +256,18 @@ export default function ConsultaIndividualPage() {
 
       {/* FAQ */}
       <motion.div
-        className="mb-20 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-20 bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-lg shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.0 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">Preguntas frecuentes</h2> {/* Eliminado dark:text-white */}
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">Preguntas frecuentes</h2>
         <div className="space-y-6">
           {faqs.map((faq, i) => (
             <motion.details
               key={i}
-              className="rounded-md border border-gray-200 p-6 bg-white shadow transition-all duration-300 hover:shadow-xl hover:border-primary" // Eliminado dark:border-zinc-700 y dark:bg-zinc-900, añadido border-gray-200
+              className="rounded-md border border-gray-200 p-6 bg-white shadow transition-all duration-300 hover:shadow-xl hover:border-primary"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
@@ -274,7 +275,7 @@ export default function ConsultaIndividualPage() {
               whileHover={{ y: -5 }}
             >
               <summary className="cursor-pointer text-lg font-semibold text-primary">{faq.pregunta}</summary>
-              <p className="mt-4 text-sm text-gray-700">{faq.respuesta}</p> {/* Eliminado dark:text-gray-300 */}
+              <p className="mt-4 text-sm text-gray-700">{faq.respuesta}</p>
             </motion.details>
           ))}
         </div>
@@ -282,16 +283,16 @@ export default function ConsultaIndividualPage() {
 
       {/* CTA */}
       <motion.div
-        className="text-center bg-gradient-to-t from-blue-50 to-transparent p-8 rounded-xl shadow-xl" // Eliminado dark:from-zinc-800
+        className="text-center bg-gradient-to-t from-blue-50 to-transparent p-8 rounded-xl shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl"> {/* Eliminado dark:text-white */}
+        <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
           ¿Lista para transformar tu bienestar?
         </h2>
-        <p className="mb-8 text-base text-gray-700"> {/* Eliminado dark:text-gray-300 */}
+        <p className="mb-8 text-base text-gray-700">
           Reserva tu primera consulta y empieza a mejorar tu salud, energía y bienestar desde hoy.
         </p>
         <Link

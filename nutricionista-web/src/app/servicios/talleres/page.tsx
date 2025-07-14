@@ -1,3 +1,4 @@
+// src/app/talleres/page.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -61,7 +62,7 @@ const talleres = [
 
 export default function TalleresPage() {
   return (
-    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800"> {/* Eliminado dark:text-white */}
+    <section className="py-20 px-6 max-w-5xl mx-auto text-gray-800">
       {/* Hero Section */}
       <motion.div
         className="text-center mb-16 relative overflow-hidden rounded-3xl p-8 shadow-lg min-h-[400px] flex items-center justify-center"
@@ -78,7 +79,7 @@ export default function TalleresPage() {
           priority
         />
         <div className="relative z-10 bg-black bg-opacity-40 p-6 rounded-lg max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4 text-white">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-white"> {/* CAMBIO: text-3xl para móviles más pequeños */}
             Charlas y Talleres
           </h1>
           <p className="text-base max-w-2xl mx-auto text-white">
@@ -90,20 +91,20 @@ export default function TalleresPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            
+
           </motion.div>
         </div>
       </motion.div>
 
       {/* Sección Unificada: Nuestra Propuesta de Valor */}
       <motion.div
-        className="mb-16 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 p-8 shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-16 rounded-lg bg-gradient-to-br from-blue-100 to-purple-100 p-8 shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900"> {/* Eliminado dark:text-white */}
+        <h2 className="mb-10 text-center text-3xl font-semibold text-gray-900">
           Nuestra Propuesta de Valor
         </h2>
 
@@ -114,7 +115,7 @@ export default function TalleresPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary flex items-center justify-center gap-2">
@@ -124,7 +125,7 @@ export default function TalleresPage() {
               {tipos.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
+                  <span className="text-gray-700 text-xs">{item}</span>
                 </li>
               ))}
             </ul>
@@ -136,7 +137,7 @@ export default function TalleresPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
-            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary" // Eliminado dark:bg-zinc-900
+            className="p-6 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary"
             whileHover={{ y: -5 }}
           >
             <h3 className="mb-4 text-center text-xl font-semibold text-primary flex items-center justify-center gap-2">
@@ -144,9 +145,9 @@ export default function TalleresPage() {
             </h3>
             <ul className="space-y-3">
               {objetivos.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-gray-700"> {/* Eliminado dark:text-gray-300 */}
+                <li key={i} className="flex items-start gap-2 text-gray-700">
                   <FaCheckCircle className="mt-0.5 flex-shrink-0 text-primary text-lg" />
-                  <span className="text-gray-700 text-xs">{item}</span> {/* Eliminado dark:text-gray-300 */}
+                  <span className="text-gray-700 text-xs">{item}</span>
                 </li>
               ))}
             </ul>
@@ -156,23 +157,23 @@ export default function TalleresPage() {
 
       {/* Sección: Próximos Talleres y Charlas */}
       <motion.div
-        className="mb-16 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-xl" // Eliminado dark:from-zinc-800 dark:to-zinc-900
+        className="mb-16 rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-6 text-center text-3xl font-semibold text-gray-900"> {/* Eliminado dark:text-white */}
+        <h2 className="mb-6 text-center text-3xl font-semibold text-gray-900">
           Próximos Talleres y Charlas
         </h2>
-        <p className="mb-10 text-center text-base text-gray-700 max-w-3xl mx-auto"> {/* Eliminado dark:text-gray-300 */}
+        <p className="mb-10 text-center text-base text-gray-700 max-w-3xl mx-auto">
           Descubre nuestros próximos eventos y reserva tu plaza para aprender y transformar tu bienestar en un ambiente dinámico y participativo.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {talleres.map((taller, i) => (
             <motion.div
               key={taller.id}
-              className="p-4 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary flex flex-col items-center text-center" // Eliminado dark:bg-zinc-900
+              className="p-4 rounded-lg bg-white border border-primary/20 shadow-md transition-all duration-300 hover:shadow-lg hover:border-primary flex flex-col items-center text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
@@ -189,8 +190,8 @@ export default function TalleresPage() {
                 />
               </div>
               <h3 className="mb-1 text-base font-semibold text-primary">{taller.titulo}</h3>
-              <p className="text-gray-700 text-xs mb-3 flex-grow">{taller.descripcion}</p> {/* Eliminado dark:text-gray-300 */}
-              <div className="space-y-1 text-xs text-gray-600 mb-3"> {/* Eliminado dark:text-gray-400 */}
+              <p className="text-gray-700 text-xs mb-3 flex-grow">{taller.descripcion}</p>
+              <div className="space-y-1 text-xs text-gray-600 mb-3">
                 <p className="flex items-center justify-center gap-1"><FaUsers className="text-primary text-sm" /> Público: {taller.publico}</p>
                 <p className="flex items-center justify-center gap-1"><FaClock className="text-primary text-sm" /> Duración: {taller.duracion}</p>
                 <p className="flex items-center justify-center gap-1"><FaCalendarAlt className="text-primary text-sm" /> Formato: {taller.formato}</p>
@@ -208,16 +209,16 @@ export default function TalleresPage() {
 
       {/* CTA final */}
       <motion.div
-        className="text-center bg-gradient-to-t from-blue-100 to-transparent p-8 rounded-xl shadow-xl" // Eliminado dark:from-zinc-800
+        className="text-center bg-gradient-to-t from-blue-100 to-transparent p-8 rounded-xl shadow-xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl"> {/* Eliminado dark:text-white */}
+        <h2 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
           ¿Listo para llevar el bienestar a tu grupo?
         </h2>
-        <p className="mb-8 text-base text-gray-700"> {/* Eliminado dark:text-gray-300 */}
+        <p className="mb-8 text-base text-gray-700">
           Contáctame para diseñar una charla o taller a medida para tu equipo, comunidad o evento.
         </p>
         <Link

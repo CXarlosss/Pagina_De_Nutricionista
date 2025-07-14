@@ -19,15 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className={GeistSans.variable}>
-  <body className="bg-white pt-[140px] text-gray-900">
-    <DoubleHeader />
-    <Navbar />
-    <main className="mx-auto min-h-[80vh] max-w-7xl px-4 sm:px-6 md:px-12">
-      {children}
-    </main>
-    <Footer />
-  </body>
-</html>
-
+      <body className="bg-white pt-[100px] text-gray-900"> {/* Este padding-top es crucial y ya está bien */}
+        <DoubleHeader />
+        <Navbar />
+        <main className="mx-auto min-h-[80vh] max-w-7xl px-4 sm:px-6 md:px-12">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
   );
 }
