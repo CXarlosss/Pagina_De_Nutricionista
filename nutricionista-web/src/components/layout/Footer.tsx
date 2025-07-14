@@ -81,10 +81,10 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="mt-16 border-t border-gray-400 bg-gray-300 dark:border-gray-700 dark:bg-zinc-900">
+    <footer className="mt-16 border-t border-gray-400 bg-gray-300"> {/* Eliminado dark:border-gray-700 y dark:bg-zinc-900 */}
       {/* Sección de Instagram */}
-      <section className="py-12 px-4 shadow-xl"> {/* Removed background gradient */}
-        <h3 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
+      <section className="py-12 px-4 shadow-xl">
+        <h3 className="text-2xl font-bold mb-6 text-center text-gray-900"> {/* Eliminado dark:text-white */}
           Sígueme en <span className="text-primary">Instagram</span>
         </h3>
         <div className="relative max-w-4xl mx-auto">
@@ -150,8 +150,8 @@ export const Footer = () => {
       </section>
 
       {/* Avisos legales */}
-      <section className="py-8 border-t border-gray-100 dark:border-gray-200 text-center"> 
-        <div className="flex flex-wrap justify-center gap-4 text-gray-600 dark:text-gray-400 font-medium">
+      <section className="py-8 border-t border-gray-100 text-center"> {/* Eliminado dark:border-gray-200 */}
+        <div className="flex flex-wrap justify-center gap-4 text-gray-600 font-medium"> {/* Eliminado dark:text-gray-400 */}
           <Link href="/aviso-legal" className="text-sm hover:text-primary transition-colors">
             Aviso legal
           </Link>
@@ -173,9 +173,9 @@ export const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto max-w-4xl py-8 flex flex-col items-center gap-4 border-t border-gray-200 dark:border-gray-700" // Changed border-gray-100 to border-gray-200 for consistency
+        className="mx-auto max-w-4xl py-8 flex flex-col items-center gap-4 border-t border-gray-200" // Eliminado dark:border-gray-700
       >
-        <p className="text-xs tracking-wide text-gray-500 dark:text-gray-400 font-normal">
+        <p className="text-xs tracking-wide text-gray-500 font-normal"> {/* Eliminado dark:text-gray-400 */}
           © {currentYear} Elena de Petronila. Todos los derechos reservados.
         </p>
 
@@ -190,7 +190,7 @@ export const Footer = () => {
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="rounded-full p-1.5 transition hover:bg-gray-200 dark:hover:bg-gray-700 text-primary hover:text-secondary"
+              className="rounded-full p-1.5 transition hover:bg-gray-200 text-primary hover:text-secondary" // Eliminado dark:hover:bg-gray-700
             >
               {link.icon}
             </motion.a>
