@@ -7,15 +7,22 @@ module.exports = {
   ],
   safelist: [
     'bg-primary',
+    // 'dark:bg-primary', // 👈 ELIMINAR ESTA LÍNEA
     'bg-primary-500',
+    // 'dark:bg-primary-500', // 👈 ELIMINAR ESTA LÍNEA
     'text-primary',
+    // 'dark:text-primary', // 👈 ELIMINAR ESTA LÍNEA
     'bg-white',
     'text-gray-900',
+    // 'dark:bg-neutral-950', // 👈 ELIMINAR ESTA LÍNEA
+    // 'dark:text-white', // 👈 ELIMINAR ESTA LÍNEA
     {
       pattern:
-        /(bg|text|border|hover:bg|hover:text|after:bg|after:text|from|to)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900))?/,
+        // ELIMINAR 'dark:bg|dark:text' del patrón de REGEX 
+        /(bg|text|border|hover:bg|hover:text|after:bg|after:text|from|to)-(primary|secondary)(-(50|100|200|300|400|500|600|700|800|900|dark))?/,
     },
   ],
+
   theme: {
     extend: {
       colors: {
@@ -31,12 +38,12 @@ module.exports = {
           700: '#15803d',
           800: '#166534',
           900: '#14532d',
-          dark: '#4a9c52', 
+          dark: '#4a9c52', // 👈 OPCIONAL: Si no usas "primary-dark", puedes quitar esta entrada también.
         },
         secondary: {
           DEFAULT: '#33b7b7',
           light: '#66d1d1',
-          dark: '#2a9e9e',
+          dark: '#2a9e9e', // 👈 OPCIONAL: Si no usas "secondary-dark", puedes quitar esta entrada también.
         },
       },
       fontFamily: {
@@ -72,5 +79,6 @@ module.exports = {
     },
   },
   plugins: [],
- 
+  // 👈 ELIMINAR ESTA LÍNEA ENTERA
+  // darkMode: 'class', 
 };

@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  FaGithub,
-  FaInstagram,
-  FaEnvelope,
-  FaWhatsapp,
-  FaLinkedin,
-  FaYoutube,
-  FaTiktok,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
+import { FaGithub, FaInstagram, FaEnvelope, FaWhatsapp, FaLinkedin, FaYoutube, FaTiktok, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -19,37 +9,37 @@ import { motion } from "framer-motion";
 const socialLinks = [
   {
     href: "https://github.com/CXarlosss",
-    icon: <FaGithub className="h-6 w-6" />,
+    icon: <FaGithub className="h-6 w-6" />, // Adjusted size
     label: "GitHub",
   },
   {
     href: "https://www.instagram.com/e.depetronila/",
-    icon: <FaInstagram className="h-6 w-6" />,
+    icon: <FaInstagram className="h-6 w-6" />, // Adjusted size
     label: "Instagram",
   },
   {
     href: "mailto:elenap.nutricionista@gmail.com",
-    icon: <FaEnvelope className="h-6 w-6" />,
+    icon: <FaEnvelope className="h-6 w-6" />, // Adjusted size
     label: "Correo",
   },
   {
     href: "https://api.whatsapp.com/send/?phone=34643914336",
-    icon: <FaWhatsapp className="h-6 w-6" />,
+    icon: <FaWhatsapp className="h-6 w-6" />, // Adjusted size
     label: "WhatsApp",
   },
   {
     href: "https://www.linkedin.com/in/elenadepetronila/",
-    icon: <FaLinkedin className="h-6 w-6" />,
+    icon: <FaLinkedin className="h-6 w-6" />, // Adjusted size
     label: "LinkedIn",
   },
   {
     href: "https://www.youtube.com/channel/UCBzKEph8Jk8yHLtk3i159NA",
-    icon: <FaYoutube className="h-6 w-6" />,
+    icon: <FaYoutube className="h-6 w-6" />, // Adjusted size
     label: "YouTube",
   },
   {
     href: "https://www.tiktok.com/@e.depetronila",
-    icon: <FaTiktok className="h-6 w-6" />,
+    icon: <FaTiktok className="h-6 w-6" />, // Adjusted size
     label: "TikTok",
   },
 ];
@@ -71,29 +61,30 @@ const instagramImages = [
 export const Footer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imagesPerPage = 3;
-  const imageWidth = 140;
-  const gapWidth = 16;
-  const [currentYear, setCurrentYear] = useState("");
+  const imageWidth = 140; // Adjusted image width
+  const gapWidth = 16; // Adjusted gap width (from 24px for gap-6 to 16px for gap-4)
+
+  const [currentYear, setCurrentYear] = useState('');
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
   }, []);
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      Math.min(prev + 1, instagramImages.length - imagesPerPage)
+    setCurrentIndex((prevIndex) =>
+      Math.min(prevIndex + 1, instagramImages.length - imagesPerPage)
     );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
   };
 
   return (
-    <footer className="mt-16 border-t border-gray-300 bg-gray-200">
-      {/* Instagram Slider */}
-      <section className="py-12 px-4 shadow-xl">
-        <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">
+    <footer className="mt-16 border-t border-gray-400 bg-gray-300 dark:border-gray-700 dark:bg-zinc-900">
+      {/* Sección de Instagram */}
+      <section className="py-12 px-4 shadow-xl"> {/* Removed background gradient */}
+        <h3 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
           Sígueme en <span className="text-primary">Instagram</span>
         </h3>
         <div className="relative max-w-4xl mx-auto">
@@ -117,35 +108,35 @@ export const Footer = () => {
                     src={src}
                     alt={`Instagram ${i}`}
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: 'cover' }}
                     className="object-cover"
                   />
                 </motion.div>
               ))}
             </motion.div>
           </div>
+          {/* Carousel Navigation Buttons */}
           {instagramImages.length > imagesPerPage && (
             <>
               <button
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
-                className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
-                aria-label="Anterior"
+                className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                aria-label="Previous image"
               >
-                <FaChevronLeft />
+                <FaChevronLeft className="text-lg" />
               </button>
               <button
                 onClick={handleNext}
                 disabled={currentIndex >= instagramImages.length - imagesPerPage}
-                className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
-                aria-label="Siguiente"
+                className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed z-20"
+                aria-label="Next image"
               >
-                <FaChevronRight />
+                <FaChevronRight className="text-lg" />
               </button>
             </>
           )}
         </div>
-
         <div className="mt-6 text-center">
           <Link
             href="https://www.instagram.com/e.depetronila/"
@@ -158,45 +149,33 @@ export const Footer = () => {
         </div>
       </section>
 
-      {/* Avisos */}
-      <section className="py-8 border-t border-gray-200 text-center">
-        <div className="flex flex-wrap justify-center gap-4 text-gray-600 font-medium">
-          <Link
-            href="/aviso-legal"
-            className="text-sm hover:text-primary transition-colors"
-          >
+      {/* Avisos legales */}
+      <section className="py-8 border-t border-gray-100 dark:border-gray-200 text-center"> 
+        <div className="flex flex-wrap justify-center gap-4 text-gray-600 dark:text-gray-400 font-medium">
+          <Link href="/aviso-legal" className="text-sm hover:text-primary transition-colors">
             Aviso legal
           </Link>
-          <Link
-            href="/politica-privacidad"
-            className="text-sm hover:text-primary transition-colors"
-          >
+          <Link href="/politica-privacidad" className="text-sm hover:text-primary transition-colors">
             Política de privacidad
           </Link>
-          <Link
-            href="/cookies"
-            className="text-sm hover:text-primary transition-colors"
-          >
+          <Link href="/cookies" className="text-sm hover:text-primary transition-colors">
             Política de cookies
           </Link>
-          <Link
-            href="/terminos"
-            className="text-sm hover:text-primary transition-colors"
-          >
+          <Link href="/terminos" className="text-sm hover:text-primary transition-colors">
             Términos y condiciones
           </Link>
         </div>
       </section>
 
-      {/* Footer final */}
+      {/* Redes sociales y copyright */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mx-auto max-w-4xl py-8 flex flex-col items-center gap-4 border-t border-gray-200"
+        className="mx-auto max-w-4xl py-8 flex flex-col items-center gap-4 border-t border-gray-200 dark:border-gray-700" // Changed border-gray-100 to border-gray-200 for consistency
       >
-        <p className="text-xs tracking-wide text-gray-500 font-normal">
+        <p className="text-xs tracking-wide text-gray-500 dark:text-gray-400 font-normal">
           © {currentYear} Elena de Petronila. Todos los derechos reservados.
         </p>
 
@@ -211,7 +190,7 @@ export const Footer = () => {
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="rounded-full p-1.5 transition hover:bg-gray-300 text-primary hover:text-secondary"
+              className="rounded-full p-1.5 transition hover:bg-gray-200 dark:hover:bg-gray-700 text-primary hover:text-secondary"
             >
               {link.icon}
             </motion.a>
