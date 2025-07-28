@@ -5,44 +5,57 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-// Mock data for blog posts to display in "Publicaciones, tips y muchos más" section
+// Mock data for blog posts with full descriptions
 const blogPosts = [
   {
     title: "Pierde peso y gana salud: Guía práctica para una dieta sana y ejercicio efectivo",
-    href: "/blog/articulos/guia-perder-peso", // Hypothetical slug
+    description:
+      "Aquí tienes lo que estás buscando: una guía completa para perder peso de forma saludable y sostenible, incluyendo consejos sobre cómo planificar tus comidas, elegir los mejores alimentos y combinar el ejercicio de manera efectiva para alcanzar tus metas.",
+    href: "/blog/articulos/pierde-peso-guia-dieta-ejercicio",
   },
   {
     title: "Nutrición y Salud Mental: La Conexión entre la Dieta y el Bienestar Emocional",
-    href: "/blog/articulos/nutricion-salud-mental", // Hypothetical slug
+    description:
+      "La relación entre la nutrición y la salud mental ha ganado cada vez más atención en los últimos años. En este artículo exploramos cómo los alimentos que consumimos impactan directamente en nuestro estado de ánimo, la ansiedad y la capacidad de concentración.",
+    href: "/blog/articulos/nutricion-y-salud-mental",
   },
   {
     title: "Consejos para Comer Saludable en un Mundo Ajetreado",
-    href: "/blog/articulos/comer-saludable-mundo-ajetreado", // Hypothetical slug
+    description:
+      "En la era moderna, donde el ritmo de vida es frenético y el tiempo parece escasear, mantener una alimentación saludable puede ser un desafío. Te doy consejos prácticos y sencillos para preparar comidas rápidas y nutritivas sin sacrificar sabor ni bienestar.",
+    href: "/blog/articulos/comer-saludable-en-un-mundo-ajetreado",
   },
   {
     title: "Cómo Leer Etiquetas Nutricionales de Forma Efectiva",
-    href: "/blog/articulos/leer-etiquetas-nutricionales", // Hypothetical slug
+    description:
+      "En la era actual, donde la información sobre la nutrición está al alcance de todos, leer las etiquetas nutricionales se ha convertido en una habilidad esencial. Aprende a interpretar los datos clave para tomar decisiones de compra más inteligentes y conscientes.",
+    href: "/blog/articulos/leer-etiquetas-nutricionales",
   },
   {
-    title: "Guía para Principiantes en Nutrición: Comer saludable sin complicaciones",
-    href: "/blog/articulos/guia-principiantes-nutricion", // Hypothetical slug
+    title: "Guía para Principiantes en Nutrición: Comer Saludable sin Complicaciones",
+    description:
+      "La nutrición es un aspecto fundamental de nuestro bienestar, pero a menudo puede resultar abrumadora para aquellos que recién comienzan. Esta guía desglosa los conceptos básicos para que empieces a comer de forma saludable y sin complicaciones.",
+    href: "/blog/articulos/guia-nutricion-principiantes",
   },
   {
     title: "Los Beneficios de una Dieta Equilibrada",
-    href: "/blog/articulos/beneficios-dieta-equilibrada", // Hypothetical slug
+    description:
+      "Mantener una dieta equilibrada es esencial para promover un estilo de vida saludable y prevenir numerosas enfermedades. Descubre cómo una alimentación adecuada puede mejorar tu energía, fortalecer tu sistema inmunológico y contribuir a tu bienestar a largo plazo.",
+    href: "/blog/articulos/beneficios-dieta-equilibrada",
   },
 ];
+
 
 export default function SobreMiPage() {
   return (
     <main className="bg-white text-gray-900">
       {/* Hero */}
-      <section className="text-center py-24 px-6 bg-gradient-to-br from-blue-100 to-purple-100 rounded-b-xl shadow-lg">
+      <section className="text-center py-24 px-6 bg-gradient-to-br from-blue-100 to-green-100 rounded-b-xl shadow-lg">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900" /* CHANGE: Added text-3xl for smallest screens, adjusted sm and lg */
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900"
         >
           Mucho gusto,<br />
           soy <span className="text-primary">Elena De Petronila</span>
@@ -112,47 +125,47 @@ export default function SobreMiPage() {
 
       {/* Sección: ¿Cómo que un Podcast? */}
       <section className="py-20 px-6 bg-gradient-to-br from-[#ffb4b9] to-[#ffcdb2] rounded-3xl shadow-xl mx-auto max-w-6xl">
-      <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
-        {/* Texto del Podcast (izquierda) */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="p-4"
-        >
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            ¿Cómo que un <span className="text-primary">Podcast</span>?
-          </h2>
-          <p className="text-base leading-relaxed text-gray-700">
-            En 2022 decidimos empezar este proyecto Beatriz Rodríguez, que puedes encontrar en redes como @partiendoelkoko y yo, para dar apoyo, información y nuestro punto de vista de la alimentación, la nutrición y la salud en general, tocando temas como la obesidad, los trastornos de la conducta alimentaria, la alimentación sostenible, como crear hábitos… Siempre con nuestro toque de lo que nosotras llamamos humor y desde la cercanía, como si estuviéramos en un bar un viernes noche.
-          </p>
-        </motion.div>
-
-        {/* Imagen del Podcast (derecha) */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex justify-center p-4"
-        >
+        <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+          {/* Texto del Podcast (izquierda) */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative w-[300px] h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/20 bg-gradient-to-br from-blue-100 to-purple-100"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="p-4"
           >
-            <Image
-              src="/images/Partiendo-el-koko.png"
-              alt="Portada del Podcast Partiendo el KOKO"
-              fill
-              style={{ objectFit: 'cover' }}
-              className="object-cover"
-            />
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              ¿Cómo que un <span className="text-primary">Podcast</span>?
+            </h2>
+            <p className="text-base leading-relaxed text-gray-700">
+              En 2022 decidimos empezar este proyecto Beatriz Rodríguez, que puedes encontrar en redes como @partiendoelkoko y yo, para dar apoyo, información y nuestro punto de vista de la alimentación, la nutrición y la salud en general, tocando temas como la obesidad, los trastornos de la conducta alimentaria, la alimentación sostenible, como crear hábitos… Siempre con nuestro toque de lo que nosotras llamamos humor y desde la cercanía, como si estuviéramos en un bar un viernes noche.
+            </p>
           </motion.div>
-        </motion.div>
-      </div>
-    </section>
+
+          {/* Imagen del Podcast (derecha) */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="flex justify-center p-4"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative w-[300px] h-[300px] rounded-3xl overflow-hidden shadow-2xl border-4 border-primary/20 bg-gradient-to-br from-blue-100 to-purple-100"
+            >
+              <Image
+                src="/images/Partiendo-el-koko.png"
+                alt="Portada del Podcast Partiendo el KOKO"
+                fill
+                style={{ objectFit: 'cover' }}
+                className="object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Sección: Instagram y Tiktok */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
@@ -208,9 +221,8 @@ export default function SobreMiPage() {
         </motion.div>
       </section>
 
-
       {/* Sección: Publicaciones, tips y muchos más */}
-      <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 px-6 **bg-gradient-to-br from-green-50 to-emerald-50**">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h2
             className="text-4xl font-bold mb-12 text-gray-900"
@@ -242,7 +254,13 @@ export default function SobreMiPage() {
                 className="p-6 bg-white border border-primary/20 rounded-xl shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:border-primary"
                 whileHover={{ y: -5 }}
               >
-                <h3 className="text-lg font-semibold mb-3 text-gray-900 text-left">{post.title}</h3>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 text-left">
+                  {post.title}
+                </h3>
+                {/* Nueva sección para la descripción */}
+                <p className="text-sm text-gray-700 mb-4 text-left flex-grow">
+                  {post.description}
+                </p>
                 <Link
                   href={post.href}
                   className="text-primary text-sm font-semibold hover:underline mt-auto inline-block text-left"

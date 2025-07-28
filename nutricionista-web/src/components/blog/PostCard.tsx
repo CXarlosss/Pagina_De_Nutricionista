@@ -19,19 +19,18 @@ export const PostCard = ({ article }: { article: Post }) => {
   const href = `/blog/${categoryPath}/${article.slug}`;
 
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <motion.article
         whileHover={{
-          scale: 1.02,
-          boxShadow:
-            "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+          scale: 1.015,
+          boxShadow: "0 12px 20px -5px rgba(0, 0, 0, 0.08)",
         }}
-        whileTap={{ scale: 0.98 }}
-        initial={{ opacity: 0, y: 20 }}
+        whileTap={{ scale: 0.985 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="overflow-hidden rounded-xl border border-primary/20 shadow-xl transition hover:border-primary cursor-pointer bg-white" // Removed dark:bg-zinc-900
+        className="group flex flex-col overflow-hidden rounded-xl border border-primary/20 shadow-md bg-white transition-all hover:border-primary hover:shadow-xl"
       >
         {/* Imagen */}
         <div className="relative h-52 w-full overflow-hidden">
@@ -39,29 +38,30 @@ export const PostCard = ({ article }: { article: Post }) => {
             src={article.image}
             alt={article.title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
 
         {/* Contenido */}
-        <div className="p-5">
-          <p className="mb-1 text-xs text-gray-600"> {/* Removed dark:text-gray-400 */}
-            {format(new Date(article.date), "d 'de' MMMM 'de' yyyy", {
-              locale: es,
-            })}
-          </p>
+        <div className="flex flex-col justify-between p-5 flex-grow">
+          <div className="mb-4">
+            <p className="mb-1 text-xs text-gray-500 uppercase tracking-wide">
+              {format(new Date(article.date), "d 'de' MMMM 'de' yyyy", {
+                locale: es,
+              })}
+            </p>
 
-          {/* TÍTULO CON GRADIENTE */}
-          <h3 className="mb-3 text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-            {article.title}
-          </h3>
+            <h3 className="mb-2 text-xl font-semibold leading-snug bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              {article.title}
+            </h3>
 
-          <p className="mb-4 text-sm text-gray-700"> {/* Removed dark:text-gray-300 */}
-            {article.excerpt}
-          </p>
+            <p className="text-sm text-gray-700 line-clamp-3">
+              {article.excerpt}
+            </p>
+          </div>
 
-          <span className="text-primary text-sm font-medium hover:underline">
+          <span className="mt-auto text-sm text-primary font-medium hover:underline">
             Leer más →
           </span>
         </div>
