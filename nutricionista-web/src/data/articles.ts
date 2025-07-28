@@ -353,7 +353,7 @@ export const posts: Post[] = [
   slug: "comer-saludable-en-un-mundo-ajetreado",
   excerpt: "Te doy consejos prácticos para comer bien aunque tengas poco tiempo.",
   date: "2025-07-28",
-  image: "/images/articles/cbatch-cooking.jpg",
+  image: "/images/articles/batch-cooking.jpg",
   category: "Hábitos saludables",
   readingTime: "3 min",
   content: `
