@@ -27,8 +27,6 @@ Proyecto web completo para una nutricionista profesional. Diseño moderno, enfoq
 - 🗂️ **Organización escalable** de carpetas y componentes reutilizables
 - 🧠 **Contenido gestionado desde archivos `.ts`** (simulando un CMS)
 - 📣 **Accesibilidad y buenas prácticas Web Vitals**
-- 🌙 **Modo oscuro/claro** (opcional)
-
 ---
 
 ## 🧱 Tecnologías Usadas
